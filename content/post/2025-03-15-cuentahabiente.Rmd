@@ -1,0 +1,156 @@
+---
+title: "Asaltos con violencia a cuentahabites saliendo del cajero"
+author: "Alan Jrz"
+date: 2025-03-17
+image: img/banner/blog1.jpg
+twitterImg: img/banner/bars-3d-maischberger.png
+layout: post
+showtoc: false
+description: "He analizado el perfil de las víctimas de robo con violencia a cuentahabientes al salir de los cajeros automáticos. Me he enfocado en la cantidad de víctimas, su edad y sexo, así como en los horarios y lugares donde ocurren con mayor frecuencia. También identifiqué cuáles son los cajeros y las instituciones bancarias con mayor riesgo, debido a su proximidad a zonas con alta concentración de robos."
+tags: ["Robo a cuentahabientes", "Inseguridad", "R", "Hotspot"]
+editor_options:
+    chunk_output_type: console
+always_allow_html: true
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+# Cargar librerías necesarias
+library(apexcharter)
+library(dplyr)
+library(tidyr)
+library(htmltools) # Para usar div() en HTML
+library(leaflet)
+library(foreign)
+library(openxlsx)
+library(sf)
+
+# Crear un contenedor responsive para ApexCharts
+IND2 <- read.csv("C:/Users/alan5/OneDrive/Documentos/AlanJrz/public/data/Indicador_02.csv")
+CDMX <- st_read("C:/Users/alan5/OneDrive/Documentos/AlanJrz/public/data/CDMX.geojson") # Poligono de CDMX
+CAJEROS_HS <- st_read("C:/Users/alan5/OneDrive/Documentos/AlanJrz/public/data/CAJEROS_HS.geojson")
+HOTS2 <- st_read("C:/Users/alan5/OneDrive/Documentos/AlanJrz/public/data/HOTS_FINAL.geojson")
+
+
+```
+## Total de víctimas 
+Entre 2019 y 2024 , la cantidad de víctimas de robos a cuentahabiente al salir de cajero con violencia ha mostrado una clara tendencia descendente, destacando algunos momentos clave. En 2019, se registraron los valores más altos, con un pico máximo de 74 robos en julio. Sin embargo, en abril de 2020, con el inicio de la pandemia por COVID-19, se produjo una caída drástica, reduciendo los robos a menos de 15 incidentes mensuales. A partir de 2021 y 2022, hubo una recuperación moderada, pero sin alcanzar los niveles pre-pandemia. Desde 2023, la tendencia continuó a la baja, y en 2024 se registraron los mínimos históricos, con solo 8 robos en abril y septiembre, reflejando un cambio significativo en el comportamiento del delito.
+
+
+<div style="display: flex; justify-content: center;">
+<iframe title="Robos a cuentahabiente saliendo del cajero" 
+aria-label="Interactive line chart" 
+id="datawrapper-chart-WQyVk" 
+src="https://datawrapper.dwcdn.net/WQyVk/2/" 
+scrolling="no" frameborder="0" 
+style="width: 100%; min-width: 100% !important; border: none;" 
+height="450" data-external="1"></iframe>
+</div>
+    
+## Características
+La ocurrencia de los delitos está vinculada con el horario de operación de los bancos comerciales, ya que de lunes a viernes entre las 09:00 y las 16:00 hrs. se cometieron 73.8% de los robos (1 496). Asimismo, el día viernes concentró mayor proporción, con 21% del total. De tal forma, fue identificado el día viernes como el de mayor riesgo de sufrir un robo violento al salir del cajero.
+
+El análisis de robos a cuentahabientes muestra una clara concentración en horario bancario (09:00 a 16:00 hrs.), donde ocurre el 73.8% de los incidentes. El viernes es el día de mayor riesgo, con el 21% del total de robos y un pico máximo a las 13:00 hrs. (68 robos), lo que sugiere que los delincuentes aprovechan el aumento de transacciones previo al fin de semana.
+
+<div style="display: flex; justify-content: center;">
+<iframe title="Distribución de víctimas por rango de edad y sexo" 
+aria-label="Gráfico de rangos" 
+id="datawrapper-chart-KRbX1" 
+src="https://datawrapper.dwcdn.net/KRbX1/4/" 
+scrolling="no" frameborder="0" 
+style="width: 100%; min-width: 100% !important; border: none;" 
+height="400" data-external="1"></iframe>
+</div>
+    
+Las características de las víctimas señalan que los cuentahabientes entre 30 y 39 años de edad fueron los de mayor riesgo, en especial los hombres ya que 32.4% de las víctimas de se situaron en ese rango de edad, al igual que 28.7% de las mujeres. A medida que aumenta la edad, la proporción de víctimas disminuye, siendo menor en los grupos de 50 a 59 años y 60 y más, lo que sugiere que los delincuentes prefieren atacar a personas en edad productiva. Es importante mencionar que, del total de víctimas, 7 de cada 10 fueron hombres, lo que remarca el riesgo enfrentado.
+
+```{r setup2, echo=FALSE}
+div(
+    h6("Ocurrencia de robos por día de la semana según hora"),
+    style = "width: 100%; height: 500px;",  # Hace que el gráfico se ajuste dinámicamente
+    apex(
+        data = IND2,
+        type = "heatmap",
+        mapping = aes(x = HORAS_L, y = DIAS, fill = TOT),
+        responsive = TRUE
+    ) %>%
+        ax_chart(height = "100%",
+                 width = "100%") %>%
+        ax_xaxis(position = "bottom",
+                 labels = list(rotate=-90)) %>%    # Colocar el eje X en la parte superior
+        ax_yaxis(reversed = TRUE) %>%     # Invertir el eje Y
+        ax_plotOptions(
+            heatmap = list(
+                shadeIntensity = 0.5,
+                radius = 0,
+                useFillColorAsStroke = TRUE,
+                colorScale = list(
+                    ranges = list(
+                        list(from = 0, to = 15, name = "0 a 15", color = "#edf8fb"),
+                        list(from = 16, to = 28, name = "16 a 28", color = "#b3cde3"),
+                        list(from = 29, to = 42, name = "29 a 42", color = "#8c96c6"),
+                        list(from = 43, to = 56, name = "43 a 56", color = "#8856a7"),
+                        list(from = 57, to = 70, name = "57 a 70", color = "#810f7c")
+                    )
+                )
+            )
+        ) %>%
+        ax_dataLabels(enabled = FALSE) %>%
+        ax_stroke(width = 1)
+)
+```
+
+## Distribución Geográfica
+La distribución de los bancos en CDMX tiene la siguiente composición:
+    
+    
+    
+    
+```{r setup3, echo=FALSE}
+
+pal <- colorNumeric(palette = "Reds", domain = HOTS2$ROCA)
+div(
+    style = "width: 100%; height: 500px;",  # Hace que el gráfico se ajuste dinámicamente
+    leaflet() %>%
+        addProviderTiles("Stadia.AlidadeSmoothDark") %>%
+        addPolygons(data = CDMX,
+                    fillColor = NULL, 
+                    color = "white", 
+                    weight = 1, 
+                    opacity = 1, 
+                    fillOpacity = 0) %>% 
+        setView(lng = -99.127346, lat = 19.405967, zoom = 12) %>% 
+        addPolygons(data = HOTS2, 
+                    fillColor = ~pal(ROCA), 
+                    color = NULL, 
+                    weight = 0, 
+                    opacity = 1, 
+                    fillOpacity = 0.5,
+                    label = ~lapply(Cajeros_Info, HTML),  
+                    labelOptions = labelOptions(
+                        style = list(
+                            "background-color" = "rgba(0, 0, 0, 0.7)",  # Fondo oscuro semitransparente
+                            "color" = "white",  # Texto blanco para contraste
+                            "padding" = "6px",  # Espaciado interno
+                            "border-radius" = "5px"  # Bordes redondeados
+                        ),
+                        textsize = "13px",
+                        direction = "auto"
+                    ),
+                    group = "HotSpot") %>%
+        addCircleMarkers(data = CAJEROS_HS,
+                         radius = 3, 
+                         color = "black", 
+                         stroke = FALSE, 
+                         fillOpacity = 0.5,
+                         label = ~paste("Banco:", BANCO),
+                         group = "Cajeros") %>%
+        addLayersControl(
+            overlayGroups = c("HotSpot", "Cajeros"),
+            options = layersControlOptions(collapsed = FALSE)) %>%
+        hideGroup(c("Cajeros")) %>%
+        addLegend("bottomright", pal = pal, values = HOTS2$ROCA, title = "Robos")  
+)
+```
+
+

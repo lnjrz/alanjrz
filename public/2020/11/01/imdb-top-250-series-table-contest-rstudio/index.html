@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=4321&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Alan Jrz">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="http://localhost:4321/https://github.com/lnjrz/blanco/blob/main/top1.jpg?raw=true">
+
+    
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:image" content="https://www.cedricscherer.com/img/banner/fly_RichardStrozynski.png" >
+    
+
+    
+
+    
+      <meta name="title" content="What Do I Binge Next? A Detailed Overview of the Top 250 TV Shows" />
+      <meta property="og:title" content="What Do I Binge Next? A Detailed Overview of the Top 250 TV Shows - Cédric Scherer" />
+      <meta property="twitter:title" content="What Do I Binge Next? A Detailed Overview of the Top 250 TV Shows - Cédric Scherer" />
+      <meta property="twitter:text:title" content="What Do I Binge Next? A Detailed Overview of the Top 250 TV Shows - Cédric Scherer" />
+    
+
+    
+      <meta name="description" content="My contribution to the RStudio table contests visualizing relevant details of the top 250 TV shows as rated by IMDb users. I focused on displaying all the details I and my friends care about including in-line visualizations of rating trends and average runtime.">
+      <meta property="og:description" content="My contribution to the RStudio table contests visualizing relevant details of the top 250 TV shows as rated by IMDb users. I focused on displaying all the details I and my friends care about including in-line visualizations of rating trends and average runtime." />
+      <meta property="twitter:description" content="My contribution to the RStudio table contests visualizing relevant details of the top 250 TV shows as rated by IMDb users. I focused on displaying all the details I and my friends care about including in-line visualizations of rating trends and average runtime." />
+    
+
+    
+
+    <meta name="keyword"  content="Data Visualization, Data Science, Computational Ecology, Infographics, ggplot2">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>What Do I Binge Next? A Detailed Overview of the Top 250 TV Shows - Cédric Scherer</title>
+
+    <link rel="canonical" href="/2020/11/01/imdb-top-250-series-table-contest-rstudio/">
+
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/styles/foundation.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    </head>
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/"><img src='https://github.com/lnjrz/blanco/blob/main/logo_f.png?raw=true' width=37% style='cursor:pointer;margin:-6px 0 0 -8px;'></a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Blog</a>
+                    </li>
+                    
+
+		    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/banner/imdb-southpark-artsy.png')
+    }
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/table" title="table">
+                            table
+                        </a>
+                        
+                        <a class="tag" href="/tags/dataviz" title="DataViz">
+                            DataViz
+                        </a>
+                        
+                        <a class="tag" href="/tags/r" title="R">
+                            R
+                        </a>
+                        
+                        <a class="tag" href="/tags/gt" title="gt">
+                            gt
+                        </a>
+                        
+                        <a class="tag" href="/tags/ggplot2" title="ggplot2">
+                            ggplot2
+                        </a>
+                        
+                        <a class="tag" href="/tags/tv-shows" title="TV shows">
+                            TV shows
+                        </a>
+                        
+                        <a class="tag" href="/tags/imdb" title="IMDb">
+                            IMDb
+                        </a>
+                        
+                        <a class="tag" href="/tags/contest" title="contest">
+                            contest
+                        </a>
+                        
+                    </div>
+                    <h1>What Do I Binge Next? A Detailed Overview of the Top 250 TV Shows</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+			
+			Sunday • November 1, 2020 
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <p><a href="https://blog.rstudio.com/2020/12/23/winners-of-the-2020-rstudio-table-contest/"><span style='color:#28a87d;'><b>Update December 24<sup>th</sup> 2020:</b> My table made it into the <b>&ldquo;Honourable Mentions&rdquo;</b> section. Congrats to the winner Niels van der Velden and all the others that are mentioned!</span></a></p>
+<p>In consequence, I decided to visualize the top  250 TV shows according to IMDb users as a more helpful table then the <a href="https://www.imdb.com/chart/toptv/">original one on IMDb</a> as <a href="https://community.rstudio.com/t/what-do-i-binge-next-an-overview-of-the-top-imdb-tv-shows-table-contest-submission/86409">my contribution</a> to the ongoing <a href="https://blog.rstudio.com/2020/09/15/announcing-the-2020-rstudio-table-contest/">RStudio table contest</a>:</p>
+<blockquote>
+<p>Tables are a fantastic way to communicate lists of quantitative and qualitative information. Sometimes, tables can fall very short of their potential for greatness. But that was the past: we now have some excellent R packages at our disposal to generate well-designed and functional presentation tables. And because of this renaissance of table-making in R, we’re announcing a contest: The 2020 RStudio Table Contest!</p></blockquote>
+<img src="https://raw.githubusercontent.com/Z3tt/Rstudio_TableContest_2020/main/output/IMDb_Top250_teaser.png" style="height: 100%; width: 100%; object-fit: contain" onclick="window.open('https://www.cedricscherer.com/img/table-contest/IMDb_Top250.png', 'blank');"/>
+<figcaption>Click on the preview to see the full table of all 250 TV shows.</figcaption>
+<h5 id="whats-shown">What&rsquo;s shown?</h5>
+<p>The table shows relevant details of the top 250 TV shows as rated by IMDb users. I focused on displaying the details I and my friends care about: of course the ranking and overall rating but additionally the runtime per episode, genres, number of seasons and episodes, ID of the best episodes. But most importantly—the trend of ratings as the TV show progresses.</p>
+<p>To visualize the runtime I decided to use a restrained, grey-toned, area-scaled circle. The normalized trends in episode ratings are visualized as stripes similar to the famous <a href="https://en.wikipedia.org/wiki/Warming_stripes">&ldquo;warming stripes&rdquo; by Ed Hawkins</a>:</p>
+<p><img src="/img/table-contest/southpark.png" alt=""></p>
+<figcaption>The “trending stripes” for 309 epsiodes of “Southpark”, covering 24 seasons in total.</figcaption>
+<p>In addition, a line indicates the average rating per season on a range from 1 to 10:</p>
+<p><img src="/img/table-contest/southpark_full.png" alt=""></p>
+<figcaption>The “trending stripes” of “Southpark”, including trends in average rating per season visualized as a step chart.</figcaption>
+<p>How does this help? Here are two more examples showing the dramatic (and completely deserved) fall of ratings for the last season of “Game of Thrones” as well as the brilliant  “Bojack Horseman” that got better and better over time:</p>
+<p><img src="/img/table-contest/got-bojack.png" alt=""></p>
+<figcaption>Two trending stripes illustrating  completely different courses of ratings as the series progresses.</figcaption>
+<p>While the line shows the absolute decrease or increase in rating across seasons, the colored stripes gives an idea how each episode performed relative to the series&rsquo; average. Also, from the color intensity one can see that the worst episodes were far more off from the average rating than the best episodes in “Game of Thrones”, while there was not that much variation across episodes in “Bojack Horseman”.</p>
+<p>The idea is built upon a personal project that I started in March 2020 after visualizing <a href="https://twitter.com/cedscherer/status/1242229041488433152">IMDb ratings of &ldquo;The Office&rdquo; as contribution to #TidyTuesday</a> but I never had the drive to finish. Here is a visualization from back then that served as inspiration:</p>
+<p><img src="/img/table-contest/2019_02_TVsGoldenAge_rel100_rank.png" alt=""></p>
+<figcaption>Trends in season ratings for the top 100 of series comprising 3 to 12 seasons.</figcaption>
+<p>During the development of the table, I tried different versions showing either rating trends scaled across  or per show, absolute versus relative changes and  a version where each season and its average rating is indicated below the episode ratings:</p>
+<p><img src="/img/table-contest/snapshot_dev.png" alt=""></p>
+<figcaption>Screenshot of the development process of the trending stripes to show episode and season ratings across series.</figcaption>
+<h5 id="data-source-and-preparation">Data Source and Preparation</h5>
+<p>The data is a mixture of scraped data using a modified<a href="ttps://github.com/WittmannF/imdb-tv-ratings/blob/master/IMDB_get_ratings.ipynb"> Python script</a> (ranks, ratings, votes, year of release) and data downloaded from the <a href="https://datasets.imdbws.com/">IMDb dataset interface</a> (title basics: original title, genre, runtime). The data was cleaned (e.g. correct wrong runtimes, title spellings etc.) and missing entries filled. (However, some series are returned as having 1 season only but have several actually and I didn&rsquo;t find a good workaround yet.)</p>
+<h5 id="r-packages-used">R Packages Used</h5>
+<p>I used the <a href="https://gt.rstudio.com/"><code>{gt}</code> package</a> which allows to generate static tables in R. It also allows adding <a href="https://ggplot2.tidyverse.org/">visualizations created with <code>{ggplot2}</code></a> as in-line plots such as simple sparkline or bar charts as demonstrated in <a href="https://twitter.com/thomas_mock">Thomas Mock</a>&rsquo;s great <a href="https://themockup.blog/posts/2020-09-04-10-table-rules-in-r/"><code>{gt}</code> tutorial</a> that helped me along the way:</p>
+<p><img src="/img/table-contest/tables_thomas.png" alt=""></p>
+<figcaption>Two example tables with in-line ggplots from Thomas Mock's great tutorial series.</figcaption>
+<p>In addition, I used several <code>{tidyverse}</code> packages (<code>{dplyr}</code>, <code>{tidyr}</code>, <code>{readr}</code>, <code>{magrittr}</code>) for data preparation as well as <code>{reticulate}</code> o run the Python scrapping script, <code>{here}</code> for easy handling of paths, <code>{glue}</code> for string pasting and <code>{pkgconfig}</code> to deal with header names. The code to generate the table is <a href="https://github.com/Z3tt/Rstudio_TableContest_2020/blob/main/imdb_top_tvshows.Rmd">available on GitHub</a>.</p>
+<h5 id="varieties">Varieties</h5>
+<p>Since the Top 250 TV Shows table is quite long (by definition), I also created versions for the <a href="https://raw.githubusercontent.com/Z3tt/Rstudio_TableContest_2020/main/output/IMDb_Top100.png">Top 100</a> and <a href="https://raw.githubusercontent.com/Z3tt/Rstudio_TableContest_2020/main/output/IMDb_Top50.png">Top 50</a>, respectively. I also found it interesting to look at particular genres in isolation and provide exemplary versions for the genres <a href="https://raw.githubusercontent.com/Z3tt/Rstudio_TableContest_2020/main/output/IMDb_TopDocumentary.png">Documentary</a>, <a href="https://raw.githubusercontent.com/Z3tt/Rstudio_TableContest_2020/main/output/IMDb_TopAnimation.png">Animation</a>, <a href="https://raw.githubusercontent.com/Z3tt/Rstudio_TableContest_2020/main/output/IMDb_TopComedy.png">Comedy</a>, <a href="https://raw.githubusercontent.com/Z3tt/Rstudio_TableContest_2020/main/output/IMDb_TopDrama.png">Drama</a>, and <a href="https://raw.githubusercontent.com/Z3tt/Rstudio_TableContest_2020/main/output/IMDb_TopAction.png">Action</a>.</p>
+<p>Here are is the full top 100 as well as all comedy series contained in the top 250:</p>
+<p><img src="https://raw.githubusercontent.com/Z3tt/Rstudio_TableContest_2020/main/output/IMDb_Top100.png" alt=""></p>
+<figcaption>A variety showing the top 100 TV shows on IMDb users as of Nov 1<sup>st</sup> 2020.</figcaption>
+<p><img src="https://raw.githubusercontent.com/Z3tt/Rstudio_TableContest_2020/main/output/IMDb_TopComedy.png" alt=""></p>
+<figcaption>A variety showing the top comedy TV shows contained in the top 250 TV shows as of Nov 1<sup>st</sup> 2020.</figcaption>
+<hr>
+<p>All tables and the source codes are available on <a href="https://github.com/Z3tt/Rstudio_TableContest_2020/">GitHub</a>.</p>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2020/03/31/corona-COVID-19-death-tolls-worst-day-so-far/" data-toggle="tooltip" data-placement="top" title="The Worst Days of the Coronavirus Pandemic So Far">&larr; Anterior</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2021/01/01/review-2020-personal-dataviz-highlights/" data-toggle="tooltip" data-placement="top" title="My Personal Data Visualization Year 2020">Siguiente &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+            </div>
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+
+                
+                <section>
+                  <br>
+                 
+                    <ul class="list-inline">
+                        
+                    </ul>
+                </section>
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+
+                    
+                    <li>
+                        <a href="mailto:ln.jrz.grc@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		                
+                    
+                    <li>
+                        <a href="https://x.com/Alan__Jrz">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/alanjrz/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		                
+                    
+                      
+                </ul>
+                
+		<p class="copyright text-muted">
+                    Una página hecha con <a href="https://gohugo.io/">HUGO</a> <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite</a> alojada en <a href="https://www.netlify.com/">Netlify</a>. <br>&bull; Proyectos hechos con R &bull; <br>Elaborado con la platilla de <a href="https://www.cedricscherer.com/">Cédric Scherer</a>
+    </p>
+    
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#28a87d'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    async("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+</body>
+</html>

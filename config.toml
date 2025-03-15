@@ -1,0 +1,175 @@
+baseurl = "https://cedricscherer.com/"
+title = "Alan Jrz"
+theme = "hugo-theme-cleanwhite"
+languageCode = "en-us"
+baseURL = "https://www.cedricscherer.com/"
+# Enable comments by entering your Disqus shortname
+#disqusShortname = "Cédric"
+preserveTaxonomyNames = true
+[pagination]
+pagerSize = 10 #frontpage pagination
+hasCJKLanguage = true
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+
+[outputs]
+  home = ["HTML", "RSS", "Algolia"]
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[params]
+  keep_md = true
+  header_image = "https://github.com/lnjrz/blanco/blob/main/top1.jpg?raw=true"
+  twitter_image = "https://cedricscherer.com/img/banner/banner.png"
+  copyright = "Cédric Scherer"
+  SEOTitle = "Cédric Scherer"
+  title = "Cédric Scherer"
+  description = "Blog by Cédric Scherer"
+  keyword = "Data Visualization, Data Science, Computational Ecology, Infographics, ggplot2"
+  slogan = "Análisis de información y visualización" #Data Visualization & Computational Ecology #"Charts & False Promises"
+  google_fonts = ""
+  title_404 = ""
+  rssLimit = 20
+
+  # leancloud storage for page view counter
+  page_view_conter = false
+  leancloud_app_id = ""
+  leancloud_app_key = ""
+
+  # algolia site search
+  algolia_search = false
+  algolia_appId = ""
+  algolia_indexName = ""
+  algolia_apiKey = ""
+
+  # Sidebar settings
+  sidebar_about_description = "Acomodando datos para contar historias ¿una gráfica?"
+  sidebar_avatar = "https://github.com/lnjrz/blanco/blob/main/Alanweb2-modified.png?raw=true"
+
+  featured_tags = false
+  featured_condition_size = 1
+
+  support_button = true
+
+  # Baidu Analytics
+  ba_track_id = ""
+
+  # We need a proxy to access Disqus api in Chian
+  # Follow https://github.com/zhaohuabing/disqus-php-api to set up your own disqus proxy
+  disqus_proxy = ""
+  disqus_site = ""
+
+  #Enable wechat pay & alipay to allow readers send reward money if they like the articles
+  reward = false
+
+  friends = false
+  bookmarks = false
+  about_me = true
+
+  [params.social]
+  email          = "ln.jrz.grc@gmail.com"
+  #facebook      = "full profile url in facebook"
+  #googleplus    = "full profile url in googleplus"
+  twitter        = "https://x.com/Alan__Jrz"
+  linkedin       = "https://www.linkedin.com/in/alanjrz/"
+  #stackoverflow = "https://stackoverflow.com/users/yourstackoverflowid"
+  #instagram     = "full profile url in instagram"
+  #github         = "https://github.com/z3tt"
+  #wechat        = "your wechat qr code image"
+  #medium        = "full profile url in medium"
+  #pinterest     = "full profile url in pinterest"
+  #behance        = "https://www.behance.net/cedscherer"
+  #rss            = true
+
+  #[[params.friend_link]]
+  #title = "DataVizard"
+  #href =  "https://data-vizard.com/"
+  [[params.friend_link]]
+  title = "DataVizSociety"
+  href =  "https://www.datavisualizationsociety.com/"
+  [[params.friend_link]]
+  title = "From Data to Viz"
+  href =  "https://www.data-to-viz.com/"
+  [[params.friend_link]]
+  title = "CorrelAid"
+  href =  "https://correlaid.org/en/"
+  [[params.friend_link]]
+  title = "Marco Sciaini"
+  href =  "https://marcosci.github.io/"
+  [[params.friend_link]]
+  title = "Georgios Karamanis"
+  href =  "https://karaman.is/" 
+  [[params.friend_link]]
+  title = "Julie Brunet"
+  href =  "https://www.instagram.com/datacitron/"
+  [[params.friend_link]]
+  title = "Matthias Stahl"
+  href =  "https://www.higsch.com/"
+  [[params.friend_link]]
+  title = "Inbal Rief"
+  href =  "https://www.inbal-rief.com/" 
+  [[params.friend_link]]
+  title = "Will Chase"
+  href =  "https://www.williamrchase.com/"
+  [[params.friend_link]]
+  title = "Anne-Marie Dufour"
+  href =  "https://www.delightfuldata.art/"
+  [[params.friend_link]]
+  title = "Heureka Labs"
+  href =  "https://www.heurekalabs.org/"
+  
+  #[[params.bookmark_link]]
+  #title = "Curiculum Vitae"
+  #href =  "https://www.cedricscherer.com/top/cv"
+  #[[params.bookmark_link]]
+  #title = "Portfolio Slides"
+  #href =  "https://www.cedricscherer.com/files/cedric-scherer-data-visualization-portfolio.pdf"
+  #[[params.bookmark_link]]
+  #title = "ggplot2 Tutorial"
+  #href =  "https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/"
+  #[[params.bookmark_link]]
+  #title = "Evolution of a ggpplot"
+  #href =  "https://www.cedricscherer.com/2019/05/17/the-evolution-of-a-ggplot/"
+  #[[params.bookmark_link]]
+  #title = "rstudio::conf Workshop"
+  #href =  "https://rstudio-conf-2022.github.io/ggplot2-graphic-design/"
+
+  #[[params.addtional_menus]]
+  #title = "Services"
+  #href =  "https://www.data-vizard.com/"
+
+  #[[params.addtional_menus]]
+  #title =  "Gallery"
+  #href =  "/top/dataviz/"
+
+  #[[params.addtional_menus]]
+  #title =  "Portfolio"
+  #href =  "/top/portfolio/"
+  
+  #[[params.addtional_menus]]
+  #title =  "Quién soy"
+  #href =  "/top/about/"
+
+  #[[params.addtional_menus]]
+  #title = "Links"
+  #href =  "/top/links/"
+
+[permalinks]
+    post = "/:year/:month/:day/:slug/"
+
+[outputFormats.Algolia]
+  baseName = "algolia"
+  isPlainText = true
+  mediaType = "application/json"
+  notAlternative = true
+
+[params.algolia]
+  vars = ["title", "summary", "date", "publishdate", "expirydate", "permalink"]
+  params = ["categories", "tags"]
+  
+[markup]
+  [markup.tableOfContents]
+    endLevel = 2
+    startLevel = 1
+  [markup.highlight]
+    style = "dracula"

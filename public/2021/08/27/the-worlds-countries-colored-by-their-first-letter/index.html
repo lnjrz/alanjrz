@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=4321&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Alan Jrz">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="http://localhost:4321/https://github.com/lnjrz/blanco/blob/main/top1.jpg?raw=true">
+
+    
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:image" content="https://www.cedricscherer.com/img/banner/world-by-letters-artsy.png" >
+    
+
+    
+
+    
+      <meta name="title" content="The World&#39;s Countries Colored by Their First Letter" />
+      <meta property="og:title" content="The World&#39;s Countries Colored by Their First Letter - Cédric Scherer" />
+      <meta property="twitter:title" content="The World&#39;s Countries Colored by Their First Letter - Cédric Scherer" />
+      <meta property="twitter:text:title" content="The World&#39;s Countries Colored by Their First Letter - Cédric Scherer" />
+    
+
+    
+      <meta name="description" content="While preparing the mapping section for a Pearson–O&#39;Reilly training, I got the idea to visualize the first letter of each country. And got especially curious about how much landmass each letter covers. Turns out: A, C and R are covering the largest areas!">
+      <meta property="og:description" content="While preparing the mapping section for a Pearson–O&#39;Reilly training, I got the idea to visualize the first letter of each country. And got especially curious about how much landmass each letter covers. Turns out: A, C and R are covering the largest areas!" />
+      <meta property="twitter:description" content="While preparing the mapping section for a Pearson–O&#39;Reilly training, I got the idea to visualize the first letter of each country. And got especially curious about how much landmass each letter covers. Turns out: A, C and R are covering the largest areas!" />
+    
+
+    
+
+    <meta name="keyword"  content="Data Visualization, Data Science, Computational Ecology, Infographics, ggplot2">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>The World&#39;s Countries Colored by Their First Letter - Cédric Scherer</title>
+
+    <link rel="canonical" href="/2021/08/27/the-worlds-countries-colored-by-their-first-letter/">
+
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/styles/foundation.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    </head>
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/"><img src='https://github.com/lnjrz/blanco/blob/main/logo_f.png?raw=true' width=37% style='cursor:pointer;margin:-6px 0 0 -8px;'></a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Blog</a>
+                    </li>
+                    
+
+		    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/banner/world-by-letters-artsy.png')
+    }
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/dataviz" title="DataViz">
+                            DataViz
+                        </a>
+                        
+                        <a class="tag" href="/tags/ggplot2" title="ggplot2">
+                            ggplot2
+                        </a>
+                        
+                        <a class="tag" href="/tags/design" title="design">
+                            design
+                        </a>
+                        
+                        <a class="tag" href="/tags/maps" title="maps">
+                            maps
+                        </a>
+                        
+                    </div>
+                    <h1>The World&#39;s Countries Colored by Their First Letter</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+			
+			Friday • August 27, 2021 
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <p><strong>Next month, I am going to give a live training session for Pearson and O&rsquo;Reilly called  “Hands-On Data Visualization with ggplot2”. For this course, I want to cover mapping with R and <code>{ggplot2}</code> for the first time. While searching for a cool variable to illustrate how to create <a href="https://www.data-to-viz.com/graph/choropleth.html">choropleth maps</a>, I came up with the idea to visualize name of each country. But not the full name—that would be too silly and not insightful at all—but the first letter of each country.</strong></p>
+<p>While drafting the first map, it quickly became obvious that mapping color to all 26 letters (or better 25 letters since there is no country starting with X) is not helpful at all. A quick search showed that there are a few colorful maps, struggling with the same problem (<a href="https://www.reddit.com/r/Maps/comments/jfudnt/map_of_the_world_painted_according_to_the_first/">here</a> and <a href="https://www.reddit.com/r/mapporncirclejerk/comments/oujs8i/if_every_country_that_has_the_same_first_letter/">here</a>) or that do not permit to see the complete data by <a href="http://alphabetpassport.com/world.png">aggregating rare letters</a>.</p>
+<p>So I quickly came up to use small multiples, which would allow for an easy identification of all countries starting with a particular letter and the landmass covered by these countries. Thanks to <code>{ggplot2}</code>’s facet functionality, it was super–easy to turn it into small multiples.</p>
+<img src="https://cedricscherer.com/img/world-by-letters/letter_world_poster.png" style="height: 100%; width: 100%; object-fit: contain" onclick="window.open('img/world-by-letters/letter_world_poster.png', 'blank');"/>
+<figcaption>The final poster version with the colorful overview map and 25 small maps, one for each letter.</figcaption><br>
+<h5 id="project-type">Project Type</h5>
+<ul>
+<li>Personal Project</li>
+</ul>
+<h5 id="motivation">Motivation</h5>
+<ul>
+<li>Finding a cool variable in the NaturalEarth data set to visualize.</li>
+<li>Curiosity: Which letter covers the largest area, which are rare?</li>
+</ul>
+<h5 id="design-choices">Design Choices</h5>
+<ul>
+<li><strong>Small multiples</strong> to allow for direct access of single letters which allows also to add the area covered to each map.</li>
+<li>A <strong>cyclical color palette</strong>; of course, 25 categories are too many but with this approach one can at least identify the range a country falls into.  Color-vision deficiency problems are likely but not problematic thanks to the small multiples.</li>
+<li>I searched through a ton of fonts: I settled on <a href="https://pangrampangram.com/products/hatton"><em>Hatton</em></a> for the title and letters and <a href="https://www.omnibus-type.com/fonts/chivo/"><em>Chivo</em></a> with its tabular numbers for the areas and the caption.</li>
+</ul>
+<h5 id="data-source">Data Source</h5>
+<ul>
+<li><a href="https://www.naturalearthdata.com/">NaturalEarth</a> for the country boundaries via the <a href="https://docs.ropensci.org/rnaturalearthdata/"><code>{rnaturalearth}</code> R package</a></li>
+<li>Country names from the <a href="https://www.cia.gov/the-world-factbook/">CIA World Factbook</a>, contained in the world data set</li>
+</ul>
+<h5 id="tools">Tools</h5>
+<ul>
+<li>Data: <a href="https://docs.ropensci.org/rnaturalearthdata/"><code>{rnaturalearth}</code></a></li>
+<li>Data Preparation: <a href="https://dplyr.tidyverse.org/"><code>{dplyr}</code></a>, <a href="https://stringr.tidyverse.org/"><code>{stringr}</code></a> and <a href="https://r-spatial.github.io/sf/"><code>{sf}</code></a></li>
+<li>Graphics: <a href="https://ggplot2.tidyverse.org/"><code>{ggplot2}</code></a>; <a href="https://wilkelab.org/ggtext/"><code>{ggtext}</code></a> for title and caption; <a href="https://patchwork.data-imaginist.com/"><code>{patchwork}</code></a> for plot composition</li>
+<li>Colors: <a href="https://help.tableau.com/current/pro/desktop/en-us/formatting_create_custom_colors.htm">Tableau cyclic color palette</a> via the <a href="https://jrnold.github.io/ggthemes/index.html"><code>{ggthemes}</code></a></li>
+</ul>
+<h5 id="methods">Methods</h5>
+<ul>
+<li>I had to choose one source for the names; after checking several naming conventions, I settled on those provided by the CIA World Factbook. Why? Because this was the easiest way to get rid of &ldquo;Republic&rdquo; and other prefixes and it has a pretty good coverage.</li>
+<li>For each country, I checked if a name is provided by the CIA world Factbook; if not, I used the sovereignty provided by NaturalEarth.</li>
+<li>For each country in the shape file, I extracted the first letter with the help of the <a href="https://stringr.tidyverse.org/"><code>{stringr}</code> R package</a> from the tidyverse.</li>
+<li>For each letter I calculated the area covered with the help of the <a href="https://r-spatial.github.io/sf/"><code>{sf}</code> package</a></li>
+<li>Plotting was done completely in R (for a list of packages see &ldquo;Tools&rdquo;).<br></li>
+</ul>
+<h2 id="alternative-versions">Alternative Versions</h2>
+<h5 id="single-version-of-the-small-multiples">Single Version of the Small Multiples</h5>
+<img src="https://cedricscherer.com/img/world-by-letters/letter_world_facet_top.png" style="height: 100%; width: 100%; object-fit: contain" onclick="window.open('https://www.cedricscherer.com/img/world-by-letters/letter_world_facet_top.png', 'blank');">
+<img src="https://cedricscherer.com/img/world-by-letters/letter_world_facet_left.png" style="height: 100%; width: 100%; object-fit: contain" onclick="window.open('https://www.cedricscherer.com/img/world-by-letters/letter_world_facet_left.png', 'blank');">
+<h5 id="single-version-of-the-overview-map">Single Version of the Overview Map</h5>
+<img src="https://cedricscherer.com/img/world-by-letters/letter_world_v1.png" style="height: 100%; width: 100%; object-fit: contain" onclick="window.open('https://www.cedricscherer.com/img/world-by-letters/letter_world_v1.png', 'blank');">
+<img src="https://cedricscherer.com/img/world-by-letters/letter_world_v2.png" style="height: 100%; width: 100%; object-fit: contain" onclick="window.open('https://www.cedricscherer.com/img/world-by-letters/letter_world_v2.png', 'blank');">
+<h2 id="how-about-the-last-letter">How about the last letter?</h2>
+<p><a href="https://twitter.com/humeursdevictor">Victor</a> asked on Twitter if there is some interesting patterns when looking at the last letter of each country. I had no idea so I went ahead and mapped it. I had to make more assumptions here since several countries in the CIA World Factbook end e.g. with &ldquo;, Republic of&rdquo; or something wrapped into parentheses. I decided to remove these bits and pick the last letter of these adjusted CIA World Factbook names.</p>
+<img src="https://cedricscherer.com/img/world-by-letters/last_letter_world_poster.png" style="height: 100%; width: 100%; object-fit: contain" onclick="window.open('https://www.cedricscherer.com/img/world-by-letters/last_letter_world_poster.png', 'blank');">
+<img src="https://cedricscherer.com/img/world-by-letters/last_letter_world_v1.png" style="height: 100%; width: 100%; object-fit: contain" onclick="window.open('https://www.cedricscherer.com/img/world-by-letters/last_letter_world_v1.png', 'blank');">
+<img src="https://cedricscherer.com/img/world-by-letters/last_letter_world_facet_left.png" style="height: 100%; width: 100%; object-fit: contain" onclick="window.open('https://www.cedricscherer.com/img/world-by-letters/last_letter_world_facet_left.png', 'blank');">
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2021/07/05/a-quick-how-to-on-labelling-bar-graphs-in-ggplot2/" data-toggle="tooltip" data-placement="top" title="A Quick How-to on Labelling Bar Graphs in ggplot2">&larr; Anterior</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2022/03/08/international-womens-day-2022-the-pay-gap-in-europe/" data-toggle="tooltip" data-placement="top" title="International Women&#39;s Day 2022: The Pay Gap in Europe">Siguiente &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+            </div>
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+
+                
+                <section>
+                  <br>
+                 
+                    <ul class="list-inline">
+                        
+                    </ul>
+                </section>
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+
+                    
+                    <li>
+                        <a href="mailto:ln.jrz.grc@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		                
+                    
+                    <li>
+                        <a href="https://x.com/Alan__Jrz">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/alanjrz/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		                
+                    
+                      
+                </ul>
+                
+		<p class="copyright text-muted">
+                    Una página hecha con <a href="https://gohugo.io/">HUGO</a> <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite</a> alojada en <a href="https://www.netlify.com/">Netlify</a>. <br>&bull; Proyectos hechos con R &bull; <br>Elaborado con la platilla de <a href="https://www.cedricscherer.com/">Cédric Scherer</a>
+    </p>
+    
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#28a87d'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    async("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+</body>
+</html>

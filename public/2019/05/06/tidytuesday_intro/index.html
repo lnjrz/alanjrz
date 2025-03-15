@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=4321&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Alan Jrz">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="http://localhost:4321/https://github.com/lnjrz/blanco/blob/main/top1.jpg?raw=true">
+
+    
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:image" content="https://www.cedricscherer.com/img/banner/milkyway_RichardStrozynski.png" >
+    
+
+    
+
+    
+      <meta name="title" content="Hello, TidyTuesday!" />
+      <meta property="og:title" content="Hello, TidyTuesday! - Cédric Scherer" />
+      <meta property="twitter:title" content="Hello, TidyTuesday! - Cédric Scherer" />
+      <meta property="twitter:text:title" content="Hello, TidyTuesday! - Cédric Scherer" />
+    
+
+    
+      <meta name="description" content="During my after-thesis-vacation, I managed to tick off two long-term todo&#39;s on my list - set up a homepage and to participate in the #TidyTuesday challenge!">
+      <meta property="og:description" content="During my after-thesis-vacation, I managed to tick off two long-term todo&#39;s on my list - set up a homepage and to participate in the #TidyTuesday challenge!" />
+      <meta property="twitter:description" content="During my after-thesis-vacation, I managed to tick off two long-term todo&#39;s on my list - set up a homepage and to participate in the #TidyTuesday challenge!" />
+    
+
+    
+
+    <meta name="keyword"  content="Data Visualization, Data Science, Computational Ecology, Infographics, ggplot2">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Hello, TidyTuesday! - Cédric Scherer</title>
+
+    <link rel="canonical" href="/2019/05/06/tidytuesday_intro/">
+
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/styles/foundation.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    </head>
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/"><img src='https://github.com/lnjrz/blanco/blob/main/logo_f.png?raw=true' width=37% style='cursor:pointer;margin:-6px 0 0 -8px;'></a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Blog</a>
+                    </li>
+                    
+
+		    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/banner/milkyway_RichardStrozynski.jpg')
+    }
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/dataviz" title="DataViz">
+                            DataViz
+                        </a>
+                        
+                        <a class="tag" href="/tags/tidytuesday" title="TidyTuesday">
+                            TidyTuesday
+                        </a>
+                        
+                        <a class="tag" href="/tags/ggplot2" title="ggplot2">
+                            ggplot2
+                        </a>
+                        
+                    </div>
+                    <h1>Hello, TidyTuesday!</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+			
+			Monday • May 6, 2019 
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <p style="font-size:14px">Header image by <a href="https://www.instagram.com/richard.strozynski/?hl=en">Richard Strozynski</a></p>
+<p><strong>During my after-thesis-vacation, I managed to tick off two long-term todo&rsquo;s on my list - set up a homepage and to participate in the <a href="https://github.com/rfordatascience/tidytuesday/blob/master/README.md">#TidyTuesday challenge</a> to strengthen my data science and visualization skills and share my work and code tricks with the amazing Rstats community on Twitter. The #TidyTuesday challenge is a excellent opportunity to do so!</strong></p>
+<h3 id="what-is-it-about">What is it about?</h3>
+<p>The <a href="https://twitter.com/r4dscommunity">R4DS (&ldquo;R for Data Science&rdquo;) online learning community</a> founded by <a href="https://www.jessemaegan.com/">Jesse Maegan</a> is a great opportunity to train skills related to data wrangling and visualization and forms a network of mentors and learners. One of the first projects born out of this collaboration is #TidyTuesday - <strong>a weekly social data project that focusses on understanding how to summarize and arrange data to make meaningful charts with <code>{ggplot2}</code>, <code>{tidyr}</code>, <code>{dplyr}</code> and other tools in the <a href="https://www.tidyverse.org/"><code>{tidyverse}</code></a> ecosystem</strong> founded by <a href="https://thomasmock.netlify.com/">Thomas Mock</a>. The intent is to provide a safe and supportive forum to practice their wrangling and data visualization skills.</p>
+<p>Every Tuesday, R enthusiasts from all over the world clean, wrangle, tidy and visualize a new data set and <a href="https://twitter.com/hashtag/tidytuesday">share it on Twitter using the hashtag #TidyTuesday</a>. I follow the challenges quite some time and I am amazed by the high-quality visualizations some contributors share on their Twitter (check for example the work of <a href="https://twitter.com/committedtotape/media">David Smale</a>, <a href="https://twitter.com/harrocyranka/media">Harro Cyranka</a> and <a href="https://twitter.com/jakekaupp/media">Jake Kaupp</a> to name a few) but I during the PhD Thesis I always felt bad starting such a fun project. Since I submitted my thesis a few weeks ago and since I was anyway running deeper and deeper down the <code>{tidyverse}</code> hole during the PhD project, using their packages for all nearly all steps from data processing to statistical modelling and plotting, I finally gave it a try!</p>
+<h3 id="first-contribution-week-17">First Contribution: Week 17</h3>
+<p>Highly motivated I opened the <a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-04-23">challenge of the current week (Week 17)</a> - and what a bummer, my first contribution had to focus on anime data, one of the least favorite genres in my life. So I decided to subset the data to the only anime I know by heart: the lovely crafted Studio Ghibli movies which my partner is a big fan of (I mean, we even have a Totoro drawing hanging in our flat&hellip;)!</p>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Finally time for <a href="https://twitter.com/hashtag/TidyTuesday?src=hash&amp;ref_src=twsrc%5Etfw">#TidyTuesday</a> after submitting the thesis 😎 I am not really following the <a href="https://twitter.com/hashtag/anime?src=hash&amp;ref_src=twsrc%5Etfw">#anime</a> genre so I picked the only anime I know by heart - <a href="https://twitter.com/StudioGhibli?ref_src=twsrc%5Etfw">@StudioGhibli</a>🐉<br>Code: <a href="https://t.co/laRPpWPPE7">https://t.co/laRPpWPPE7</a><br><a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> <a href="https://twitter.com/hashtag/r4ds?src=hash&amp;ref_src=twsrc%5Etfw">#r4ds</a> <a href="https://twitter.com/hashtag/dataviz?src=hash&amp;ref_src=twsrc%5Etfw">#dataviz</a> <a href="https://twitter.com/hashtag/ggplot2?src=hash&amp;ref_src=twsrc%5Etfw">#ggplot2</a> <a href="https://twitter.com/hashtag/tidyverse?src=hash&amp;ref_src=twsrc%5Etfw">#tidyverse</a> <a href="https://t.co/WURUB94ymz"><img src="https://raw.githubusercontent.com/z3tt/TidyTuesday/main/plots/2019_17/2019_17_animes.png"></a></p>&mdash; Cédric Scherer (@CedScherer) <a href="https://twitter.com/CedScherer/status/1120740037119946752?ref_src=twsrc%5Etfw">April 23, 2019</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<h3 id="catching-up-week-14-and-16">Catching Up: Week 14 and 16</h3>
+<p>From this moment on, I was addicted and picked two other datasets, one on <a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-04-02">bike traffic in Seattle</a> (Week 14):</p>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Catching up with the folks of <a href="https://twitter.com/R4DScommunity?ref_src=twsrc%5Etfw">@R4DScommunity</a> and the <a href="https://twitter.com/hashtag/TidyTuesday?src=hash&amp;ref_src=twsrc%5Etfw">#TidyTuesday</a> 📊 and picking the 🍒of the previous challenges! Visualization of seasonal trends in 🚴‍♀️ traffic in Seattle based on time of the day, month, and weekday/weekend.<br><a href="https://twitter.com/hashtag/dataviz?src=hash&amp;ref_src=twsrc%5Etfw">#dataviz</a> <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> <a href="https://twitter.com/hashtag/r4ds?src=hash&amp;ref_src=twsrc%5Etfw">#r4ds</a> <a href="https://twitter.com/hashtag/tidyverse?src=hash&amp;ref_src=twsrc%5Etfw">#tidyverse</a> <a href="https://twitter.com/hashtag/ggplot2?src=hash&amp;ref_src=twsrc%5Etfw">#ggplot2</a> <a href="https://t.co/agGfEoZtSR"><img src="https://raw.githubusercontent.com/z3tt/TidyTuesday/main/plots/2019_14/2019_14_SeattleBikes_month.png"></a></p>&mdash; Cédric Scherer (@CedScherer) <a href="https://twitter.com/CedScherer/status/1120992373302071296?ref_src=twsrc%5Etfw">April 24, 2019</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>&hellip; and <a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-04-16">several data sets</a> in that were part of the inspiring <a href="https://medium.economist.com/mistakes-weve-drawn-a-few-8cdd8a42d368?gi=8b5700cad420">article &ldquo;Mistakes, we’ve drawn a few - Learning from our errors in data visualisation&rdquo; by The Economist</a> (Week 16):</p>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">I can&#39;t stop! 🤓 Another <a href="https://twitter.com/hashtag/TidyTuesday?src=hash&amp;ref_src=twsrc%5Etfw">#TidyTuesday</a> contribution to catch up - week 2019-16. I tried to improve a few of the &quot;mistakes that <a href="https://twitter.com/TheEconomist?ref_src=twsrc%5Etfw">@TheEconomist</a> has drawn&quot; 📊📈 Article by <a href="https://twitter.com/MissSarahLeo?ref_src=twsrc%5Etfw">@MissSarahLeo</a>: <a href="https://t.co/ufVhnMU94Z">https://t.co/ufVhnMU94Z</a><br><a href="https://twitter.com/hashtag/dataviz?src=hash&amp;ref_src=twsrc%5Etfw">#dataviz</a> <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> <a href="https://twitter.com/hashtag/r4ds?src=hash&amp;ref_src=twsrc%5Etfw">#r4ds</a> <a href="https://twitter.com/hashtag/tidyverse?src=hash&amp;ref_src=twsrc%5Etfw">#tidyverse</a> <a href="https://twitter.com/hashtag/ggplot2?src=hash&amp;ref_src=twsrc%5Etfw">#ggplot2</a> <a href="https://t.co/jxUnYzqXR6"><img src="https://raw.githubusercontent.com/z3tt/TidyTuesday/main/plots/2019_16/2019_16_DataVizMistakes_light.png"></a></p>&mdash; Cédric Scherer (@CedScherer) <a href="https://twitter.com/CedScherer/status/1121753785339142145?ref_src=twsrc%5Etfw">April 26, 2019</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>I decided to stick to the overall theme as a collection of data viz which I may put together as a poster of my highlights - or maybe not. At some point, however, I likely going to use a different theme or a theme which fits the data more each week.</p>
+<h3 id="latest-contribution-week-18">Latest Contribution: Week 18</h3>
+<p>And finally my contribution to the challenge last week with a data set from a <a href="https://royalsocietypublishing.org/doi/10.1098/rspb.2019.0364#d3e550">study of Winger et al. (2019)</a> on <a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-04-30">bird collisions in Chicago</a> (Week 18):</p>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/hashtag/TidyTuesday?src=hash&amp;ref_src=twsrc%5Etfw">#TidyTuesday</a> challenge 2019-18:  What drives collision risk in nocturnally migrating <a href="https://twitter.com/hashtag/passerine?src=hash&amp;ref_src=twsrc%5Etfw">#passerine</a> <a href="https://twitter.com/hashtag/birds?src=hash&amp;ref_src=twsrc%5Etfw">#birds</a>? 🏫🕊️<a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw"><br>#rstats</a> <a href="https://twitter.com/hashtag/dataviz?src=hash&amp;ref_src=twsrc%5Etfw">#dataviz</a> <a href="https://twitter.com/hashtag/tidyverse?src=hash&amp;ref_src=twsrc%5Etfw">#tidyverse</a> <a href="https://twitter.com/hashtag/r4ds?src=hash&amp;ref_src=twsrc%5Etfw">#r4ds</a> <a href="https://twitter.com/hashtag/ggplot2?src=hash&amp;ref_src=twsrc%5Etfw">#ggplot2</a> <a href="https://twitter.com/hashtag/birdmigration?src=hash&amp;ref_src=twsrc%5Etfw">#birdmigration</a> <a href="https://twitter.com/hashtag/Chicago?src=hash&amp;ref_src=twsrc%5Etfw">#Chicago</a> <br>Original article: <a href="https://t.co/eqSKr4eFZl">https://t.co/eqSKr4eFZl</a> <a href="https://t.co/A9wfmBdOl1"><img src="https://raw.githubusercontent.com/z3tt/TidyTuesday/main/plots/2019_18/2019_18_BirdCollisions.png"></a></p>&mdash; Cédric Scherer (@CedScherer) <a href="https://twitter.com/CedScherer/status/1123331096429641731?ref_src=twsrc%5Etfw">April 30, 2019</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>You can find all these and upcoming  #TidyTuesday contributions in the <a href="https://www.cedricscherer.com/top/dataviz/">Visualization section</a> and the corresponding codes on <a href="https://github.com/Z3tt/TidyTuesday">my GitHub page</a>! In future blog posts, I am going to share some thoughts on why I picked a given chart type, which color palettes I use and some tips and tricks of styling your ggplots - stay tuned 🤓</p>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2019/05/04/welcome/" data-toggle="tooltip" data-placement="top" title="Hello, World!">&larr; Anterior</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2019/05/17/the-evolution-of-a-ggplot/" data-toggle="tooltip" data-placement="top" title="The Evolution of a ggplot">Siguiente &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+            </div>
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+
+                
+                <section>
+                  <br>
+                 
+                    <ul class="list-inline">
+                        
+                    </ul>
+                </section>
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+
+                    
+                    <li>
+                        <a href="mailto:ln.jrz.grc@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		                
+                    
+                    <li>
+                        <a href="https://x.com/Alan__Jrz">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/alanjrz/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		                
+                    
+                      
+                </ul>
+                
+		<p class="copyright text-muted">
+                    Una página hecha con <a href="https://gohugo.io/">HUGO</a> <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite</a> alojada en <a href="https://www.netlify.com/">Netlify</a>. <br>&bull; Proyectos hechos con R &bull; <br>Elaborado con la platilla de <a href="https://www.cedricscherer.com/">Cédric Scherer</a>
+    </p>
+    
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#28a87d'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    async("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+</body>
+</html>
