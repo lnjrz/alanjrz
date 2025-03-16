@@ -5,7 +5,7 @@ date: "2025-03-16"
 draft: false
 image: img/banner/blog1.jpg
 layout: post
-description: "He analizado el perfil de las víctimas de robo con violencia a cuentahabientes al salir de los cajeros automáticos. Me he enfocado en la cantidad de víctimas, su edad y sexo, así como en los horarios y lugares donde ocurren con mayor frecuencia. También identifiqué cuáles son los cajeros y las instituciones bancarias con mayor riesgo, debido a su proximidad a zonas con alta concentración de robos."
+description: "Analicé el perfil de las víctimas de robo con violencia a cuentahabientes, enfocándome en la cantidad, edad, sexo, horarios y ubicaciones de mayor incidencia. También identifiqué los cajeros e instituciones bancarias con mayor riesgo por su cercanía a zonas de alta concentración de robos."
 tags: ["Robo a cuentahabientes", "Inseguridad", "R", "Hotspot"]
 chunk_output_type: inline
 ---
@@ -23,8 +23,10 @@ tendencia continuó a la baja, y en 2024 se registraron los mínimos
 históricos, con solo 8 robos en abril y septiembre, reflejando un cambio
 significativo en el comportamiento del delito.
 
-<iframe title="Robos a cuentahabiente saliendo del cajero" aria-label="Interactive line chart" id="datawrapper-chart-WQyVk" src="https://datawrapper.dwcdn.net/WQyVk/2/" scrolling="no" frameborder="0" style="width: 100%; min-width: 100% !important; border: none;" height="450" data-external="1">
+<div class="iframe-container">
+<iframe title="Robos a cuentahabiente saliendo del cajero" aria-label="Interactive line chart" id="datawrapper-chart-WQyVk" src="https://datawrapper.dwcdn.net/WQyVk/3/" scrolling="no" frameborder="0" style="width: 100%; min-width: 100% !important; border: none;" height="525" data-external="1">
 </iframe>
+</div>
 
 ## Características
 
@@ -42,7 +44,22 @@ de robos y un pico máximo a las 13:00 hrs. (68 robos), lo que sugiere
 que los delincuentes aprovechan el aumento de transacciones previo al
 fin de semana.
 
-<iframe src="/js/G2.html" width="100%" height="500px" style="border: none; overflow: hidden; display: block;></iframe>
+
+<div class="iframe-container">
+<h4 style="font-family: 'Inter', sans-serif; font-size: 21px; font-weight: 700; text-align: left; margin-bottom: 10px;">
+    Ocurrencia por día y hora de la semana
+</h4>
+<h6 style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; text-align: left; margin-top: 2px;">
+    Total acumulado del periodo
+</h6>
+<iframe src="/js/G2.html" width="100%" height="500px" style="width:100%; min-width: 100% !important; border: none; overflow: hidden; display: block;" height="100">
+</iframe>
+<h6 style="font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 600; text-align: left;  font-style: italic; margin-bottom: 10px;">
+    Nota: No se consideran los registros para los que no se especificó el día y hora de ocurrencia.<br>
+    Gráfico: Alan Jrz Fuente: FGJ-CDMX
+</h6>
+</div>
+
 
 Las características de las víctimas señalan que los cuentahabientes
 entre 30 y 39 años de edad fueron los de mayor riesgo, en especial los
@@ -53,10 +70,26 @@ la proporción de víctimas disminuye, siendo menor en los grupos de 50 a
 a personas en edad productiva. Es importante mencionar que, del total de
 víctimas, 7 de cada 10 fueron hombres, lo que remarca el riesgo
 enfrentado.
-
-<iframe title="Distribución de víctimas por rango de edad y sexo" aria-label="Gráfico de rangos" id="datawrapper-chart-KRbX1" src="https://datawrapper.dwcdn.net/KRbX1/4/" scrolling="no" frameborder="0" style="width: 100%; min-width: 100% !important; border: none;" height="400" data-external="1">
+<div style="height: 40px;"></div>
+<div class="iframe-container">
+<iframe title="Distribución de víctimas por rango de edad y sexo" aria-label="Gráfico de rangos" id="datawrapper-chart-KRbX1" src="https://datawrapper.dwcdn.net/KRbX1/4/" scrolling="no" frameborder="0" style="width: 100%; min-width: 100% !important; border: none;" height="350" data-external="1">
 </iframe>
+</div>
 
 ## Distribución Geográfica
+<div style="height: 40px;"></div>
 
-<iframe src="/js/M1.html" width="100%" height="500px" style="border: none; overflow: hidden; display: block;></iframe>
+<div class="iframe-container">
+<h4 style="font-family: 'Inter', sans-serif; font-size: 21px; font-weight: 700; text-align: left; margin-bottom: 10px;">
+    Identificación de hotspot y cajeros en riesgo
+</h4>
+<h6 style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; text-align: left; margin-top: 2px;">
+    
+</h6>
+<iframe src="/js/M1.html" width="100%" height="500px" style="border: none; overflow: hidden; display: block;"></iframe>
+<h6 style="font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 600; text-align: left;  font-style: italic; margin-bottom: 10px;">
+    Nota: No se consideran los registros para los que no se especificó longitud y latitud.<br>
+    Fue utilizado el algoritmo DBSCAN con proximidad de ~150 metros y un minimo de 5 delitos.<br>
+    Gráfico: Alan Jrz Fuente: FGJ-CDMX y Banxico
+</h6>
+</div>

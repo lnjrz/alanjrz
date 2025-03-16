@@ -2746,3 +2746,20 @@ li.pingback:first-child {
 .tiled-gallery .gallery-row {
   margin: 0 auto;
 }
+
+/* Contendores */
+.iframe-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* Proporción 16:9 */
+}
+
+.iframe-container iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border: none;
+}
