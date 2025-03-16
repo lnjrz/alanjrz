@@ -1,8 +1,8 @@
-baseurl = "https://cedricscherer.com/"
+baseurl = "https://betaalanjrz.netlify.app/"
 title = "Alan Jrz"
 theme = "hugo-theme-cleanwhite"
 languageCode = "en-us"
-baseURL = "https://www.cedricscherer.com/"
+baseURL = "https://betaalanjrz.netlify.app/"
 # Enable comments by entering your Disqus shortname
 #disqusShortname = "Cédric"
 preserveTaxonomyNames = true
