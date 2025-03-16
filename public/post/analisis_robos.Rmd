@@ -1,0 +1,15 @@
+---
+title: "Análisis de robos en CDMX"
+author: "Alan Jrz"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+# Insertar un gráfico de ggplot2
+library(ggplot2)
+data(mpg)
+ggplot(mpg, aes(displ, hwy, color = class)) + geom_point()
+```
+blogdown::build_site()

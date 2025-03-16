@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Alan Jrz">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="http://localhost:1313/https://github.com/lnjrz/blanco/blob/main/top1.jpg?raw=true">
+
+    
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:image" content="https://www.cedricscherer.com/https://cedricscherer.com/img/banner/banner.png" >
+    
+
+    
+
+    
+      <meta name="title" content="Análisis de robos en CDMX" />
+      <meta property="og:title" content="Análisis de robos en CDMX - Alan Jrz" />
+      <meta property="twitter:title" content="Análisis de robos en CDMX - Alan Jrz" />
+      <meta property="twitter:text:title" content="Análisis de robos en CDMX - Alan Jrz" />
+    
+
+    
+      <meta name="description" content="He analizado el perfil de las víctimas de robo con violencia a cuentahabientes al salir de los cajeros automáticos. Me he enfocado en la cantidad de víctimas, su edad y sexo, así como en los horarios y lugares donde ocurren con mayor frecuencia. También identifiqué cuáles son los cajeros y las instituciones bancarias con mayor riesgo, debido a su proximidad a zonas con alta concentración de robos.">
+      <meta property="og:description" content="He analizado el perfil de las víctimas de robo con violencia a cuentahabientes al salir de los cajeros automáticos. Me he enfocado en la cantidad de víctimas, su edad y sexo, así como en los horarios y lugares donde ocurren con mayor frecuencia. También identifiqué cuáles son los cajeros y las instituciones bancarias con mayor riesgo, debido a su proximidad a zonas con alta concentración de robos." />
+      <meta property="twitter:description" content="He analizado el perfil de las víctimas de robo con violencia a cuentahabientes al salir de los cajeros automáticos. Me he enfocado en la cantidad de víctimas, su edad y sexo, así como en los horarios y lugares donde ocurren con mayor frecuencia. También identifiqué cuáles son los cajeros y las instituciones bancarias con mayor riesgo, debido a su proximidad a zonas con alta concentración de robos." />
+    
+
+    
+
+    <meta name="keyword"  content="Data Visualization, Data Science, Computational Ecology, Infographics, ggplot2">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Análisis de robos en CDMX - Alan Jrz</title>
+
+    <link rel="canonical" href="/2025/03/16/an%C3%A1lisis-de-robos-en-cdmx/">
+
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/styles/foundation.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    </head>
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/"><img src='https://github.com/lnjrz/blanco/blob/main/logo_f.png?raw=true' width=37% style='cursor:pointer;margin:-6px 0 0 -8px;'></a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Blog</a>
+                    </li>
+                    
+
+		    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/banner/blog1.jpg')
+    }
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/robo-a-cuentahabientes" title="Robo a cuentahabientes">
+                            Robo a cuentahabientes
+                        </a>
+                        
+                        <a class="tag" href="/tags/inseguridad" title="Inseguridad">
+                            Inseguridad
+                        </a>
+                        
+                        <a class="tag" href="/tags/r" title="R">
+                            R
+                        </a>
+                        
+                        <a class="tag" href="/tags/hotspot" title="Hotspot">
+                            Hotspot
+                        </a>
+                        
+                    </div>
+                    <h1>Análisis de robos en CDMX</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+			
+			Sunday • March 16, 2025 
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <header>
+                    <h3>Table of Contents</h3>
+                </header>
+                <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#total-de-víctimas">Total de víctimas</a></li>
+        <li><a href="#características">Características</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+                
+                <h2 id="total-de-víctimas">Total de víctimas</h2>
+<p>Entre 2019 y 2024 , la cantidad de víctimas de robos a cuentahabiente al
+salir de cajero con violencia ha mostrado una clara tendencia
+descendente, destacando algunos momentos clave. En 2019, se registraron
+los valores más altos, con un pico máximo de 74 robos en julio. Sin
+embargo, en abril de 2020, con el inicio de la pandemia por COVID-19, se
+produjo una caída drástica, reduciendo los robos a menos de 15
+incidentes mensuales. A partir de 2021 y 2022, hubo una recuperación
+moderada, pero sin alcanzar los niveles pre-pandemia. Desde 2023, la
+tendencia continuó a la baja, y en 2024 se registraron los mínimos
+históricos, con solo 8 robos en abril y septiembre, reflejando un cambio
+significativo en el comportamiento del delito.</p>
+<iframe title="Robos a cuentahabiente saliendo del cajero" aria-label="Interactive line chart" id="datawrapper-chart-WQyVk" src="https://datawrapper.dwcdn.net/WQyVk/2/" scrolling="no" frameborder="0" style="width: 100%; min-width: 100% !important; border: none;" height="450" data-external="1">
+</iframe>
+<h2 id="características">Características</h2>
+<p>La ocurrencia de los delitos está vinculada con el horario de operación
+de los bancos comerciales, ya que de lunes a viernes entre las 09:00 y
+las 16:00 hrs. se cometieron 73.8% de los robos (1 496). Asimismo, el
+día viernes concentró mayor proporción, con 21% del total. De tal forma,
+fue identificado el día viernes como el de mayor riesgo de sufrir un
+robo violento al salir del cajero.</p>
+<p>El análisis de robos a cuentahabientes muestra una clara concentración
+en horario bancario (09:00 a 16:00 hrs.), donde ocurre el 73.8% de los
+incidentes. El viernes es el día de mayor riesgo, con el 21% del total
+de robos y un pico máximo a las 13:00 hrs. (68 robos), lo que sugiere
+que los delincuentes aprovechan el aumento de transacciones previo al
+fin de semana.</p>
+<iframe title="Distribución de víctimas por rango de edad y sexo" aria-label="Gráfico de rangos" id="datawrapper-chart-KRbX1" src="https://datawrapper.dwcdn.net/KRbX1/4/" scrolling="no" frameborder="0" style="width: 100%; min-width: 100% !important; border: none;" height="400" data-external="1">
+</iframe>
+<p>Las características de las víctimas señalan que los cuentahabientes
+entre 30 y 39 años de edad fueron los de mayor riesgo, en especial los
+hombres ya que 32.4% de las víctimas de se situaron en ese rango de
+edad, al igual que 28.7% de las mujeres. A medida que aumenta la edad,
+la proporción de víctimas disminuye, siendo menor en los grupos de 50 a
+59 años y 60 y más, lo que sugiere que los delincuentes prefieren atacar
+a personas en edad productiva. Es importante mencionar que, del total de
+víctimas, 7 de cada 10 fueron hombres, lo que remarca el riesgo
+enfrentado.</p>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    
+                </ul>
+
+            </div>
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+
+                
+                <section>
+                  <br>
+                 
+                    <ul class="list-inline">
+                        
+                    </ul>
+                </section>
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+
+                    
+                    <li>
+                        <a href="mailto:ln.jrz.grc@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		                
+                    
+                    <li>
+                        <a href="https://x.com/Alan__Jrz">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/alanjrz/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		                
+                    
+                      
+                </ul>
+                
+		<p class="copyright text-muted">
+                    Una página hecha con <a href="https://gohugo.io/">HUGO</a> <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite</a> alojada en <a href="https://www.netlify.com/">Netlify</a>. <br>&bull; Proyectos hechos con R &bull; <br>Elaborado con la platilla de <a href="https://www.cedricscherer.com/">Cédric Scherer</a>
+    </p>
+    
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#28a87d'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    async("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+</body>
+</html>

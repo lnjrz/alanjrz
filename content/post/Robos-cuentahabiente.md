@@ -1,0 +1,56 @@
+---
+title: "Análisis de robos en CDMX"
+author: "Alan Jrz"
+date: "2025-03-16"
+draft: false
+image: img/banner/blog1.jpg
+layout: post
+description: "He analizado el perfil de las víctimas de robo con violencia a cuentahabientes al salir de los cajeros automáticos. Me he enfocado en la cantidad de víctimas, su edad y sexo, así como en los horarios y lugares donde ocurren con mayor frecuencia. También identifiqué cuáles son los cajeros y las instituciones bancarias con mayor riesgo, debido a su proximidad a zonas con alta concentración de robos."
+tags: ["Robo a cuentahabientes", "Inseguridad", "R", "Hotspot"]
+chunk_output_type: inline
+---
+## Total de víctimas
+
+Entre 2019 y 2024 , la cantidad de víctimas de robos a cuentahabiente al
+salir de cajero con violencia ha mostrado una clara tendencia
+descendente, destacando algunos momentos clave. En 2019, se registraron
+los valores más altos, con un pico máximo de 74 robos en julio. Sin
+embargo, en abril de 2020, con el inicio de la pandemia por COVID-19, se
+produjo una caída drástica, reduciendo los robos a menos de 15
+incidentes mensuales. A partir de 2021 y 2022, hubo una recuperación
+moderada, pero sin alcanzar los niveles pre-pandemia. Desde 2023, la
+tendencia continuó a la baja, y en 2024 se registraron los mínimos
+históricos, con solo 8 robos en abril y septiembre, reflejando un cambio
+significativo en el comportamiento del delito.
+
+<iframe title="Robos a cuentahabiente saliendo del cajero" aria-label="Interactive line chart" id="datawrapper-chart-WQyVk" src="https://datawrapper.dwcdn.net/WQyVk/2/" scrolling="no" frameborder="0" style="width: 100%; min-width: 100% !important; border: none;" height="450" data-external="1">
+</iframe>
+
+## Características
+
+La ocurrencia de los delitos está vinculada con el horario de operación
+de los bancos comerciales, ya que de lunes a viernes entre las 09:00 y
+las 16:00 hrs. se cometieron 73.8% de los robos (1 496). Asimismo, el
+día viernes concentró mayor proporción, con 21% del total. De tal forma,
+fue identificado el día viernes como el de mayor riesgo de sufrir un
+robo violento al salir del cajero.
+
+El análisis de robos a cuentahabientes muestra una clara concentración
+en horario bancario (09:00 a 16:00 hrs.), donde ocurre el 73.8% de los
+incidentes. El viernes es el día de mayor riesgo, con el 21% del total
+de robos y un pico máximo a las 13:00 hrs. (68 robos), lo que sugiere
+que los delincuentes aprovechan el aumento de transacciones previo al
+fin de semana.
+
+<iframe title="Distribución de víctimas por rango de edad y sexo" aria-label="Gráfico de rangos" id="datawrapper-chart-KRbX1" src="https://datawrapper.dwcdn.net/KRbX1/4/" scrolling="no" frameborder="0" style="width: 100%; min-width: 100% !important; border: none;" height="400" data-external="1">
+</iframe>
+
+Las características de las víctimas señalan que los cuentahabientes
+entre 30 y 39 años de edad fueron los de mayor riesgo, en especial los
+hombres ya que 32.4% de las víctimas de se situaron en ese rango de
+edad, al igual que 28.7% de las mujeres. A medida que aumenta la edad,
+la proporción de víctimas disminuye, siendo menor en los grupos de 50 a
+59 años y 60 y más, lo que sugiere que los delincuentes prefieren atacar
+a personas en edad productiva. Es importante mencionar que, del total de
+víctimas, 7 de cada 10 fueron hombres, lo que remarca el riesgo
+enfrentado.

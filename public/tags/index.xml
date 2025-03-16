@@ -1,188 +1,44 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Alan Jrz</title>
-    <link>http://localhost:4321/tags/</link>
+    <link>http://localhost:1313/tags/</link>
     <description>Recent content in Tags on Alan Jrz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 17 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:4321/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 16 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hotspot</title>
-      <link>http://localhost:4321/tags/hotspot/</link>
-      <pubDate>Mon, 17 Mar 2025 00:00:00 +0000</pubDate>
+      <link>http://localhost:1313/tags/hotspot/</link>
+      <pubDate>Sun, 16 Mar 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:4321/tags/hotspot/</guid>
+      <guid>http://localhost:1313/tags/hotspot/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Inseguridad</title>
-      <link>http://localhost:4321/tags/inseguridad/</link>
-      <pubDate>Mon, 17 Mar 2025 00:00:00 +0000</pubDate>
+      <link>http://localhost:1313/tags/inseguridad/</link>
+      <pubDate>Sun, 16 Mar 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:4321/tags/inseguridad/</guid>
+      <guid>http://localhost:1313/tags/inseguridad/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R</title>
-      <link>http://localhost:4321/tags/r/</link>
-      <pubDate>Mon, 17 Mar 2025 00:00:00 +0000</pubDate>
+      <link>http://localhost:1313/tags/r/</link>
+      <pubDate>Sun, 16 Mar 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:4321/tags/r/</guid>
+      <guid>http://localhost:1313/tags/r/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Robo a Cuentahabientes</title>
-      <link>http://localhost:4321/tags/robo-a-cuentahabientes/</link>
-      <pubDate>Mon, 17 Mar 2025 00:00:00 +0000</pubDate>
+      <link>http://localhost:1313/tags/robo-a-cuentahabientes/</link>
+      <pubDate>Sun, 16 Mar 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:4321/tags/robo-a-cuentahabientes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>30DayChartChallenge</title>
-      <link>http://localhost:4321/tags/30daychartchallenge/</link>
-      <pubDate>Mon, 01 Apr 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:4321/tags/30daychartchallenge/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>DataViz</title>
-      <link>http://localhost:4321/tags/dataviz/</link>
-      <pubDate>Mon, 01 Apr 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:4321/tags/dataviz/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>DataWrapper</title>
-      <link>http://localhost:4321/tags/datawrapper/</link>
-      <pubDate>Mon, 01 Apr 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:4321/tags/datawrapper/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Annotations</title>
-      <link>http://localhost:4321/tags/annotations/</link>
-      <pubDate>Thu, 26 Oct 2023 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:4321/tags/annotations/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Ggplot2</title>
-      <link>http://localhost:4321/tags/ggplot2/</link>
-      <pubDate>Thu, 26 Oct 2023 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:4321/tags/ggplot2/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Tidyverse</title>
-      <link>http://localhost:4321/tags/tidyverse/</link>
-      <pubDate>Thu, 26 Oct 2023 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:4321/tags/tidyverse/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Tutorial</title>
-      <link>http://localhost:4321/tags/tutorial/</link>
-      <pubDate>Thu, 26 Oct 2023 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:4321/tags/tutorial/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Automation</title>
-      <link>http://localhost:4321/tags/automation/</link>
-      <pubDate>Wed, 05 Jul 2023 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:4321/tags/automation/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Efficiency</title>
-      <link>http://localhost:4321/tags/efficiency/</link>
-      <pubDate>Wed, 05 Jul 2023 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:4321/tags/efficiency/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Tips</title>
-      <link>http://localhost:4321/tags/tips/</link>
-      <pubDate>Wed, 05 Jul 2023 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:4321/tags/tips/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Workflow</title>
-      <link>http://localhost:4321/tags/workflow/</link>
-      <pubDate>Wed, 05 Jul 2023 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:4321/tags/workflow/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Challenge</title>
-      <link>http://localhost:4321/tags/challenge/</link>
-      <pubDate>Tue, 28 Mar 2023 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:4321/tags/challenge/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Community</title>
-      <link>http://localhost:4321/tags/community/</link>
-      <pubDate>Tue, 28 Mar 2023 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:4321/tags/community/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Nightingale</title>
-      <link>http://localhost:4321/tags/nightingale/</link>
-      <pubDate>Tue, 28 Mar 2023 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:4321/tags/nightingale/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Social Media</title>
-      <link>http://localhost:4321/tags/social-media/</link>
-      <pubDate>Tue, 28 Mar 2023 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:4321/tags/social-media/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Rstats</title>
-      <link>http://localhost:4321/tags/rstats/</link>
-      <pubDate>Tue, 09 Aug 2022 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:4321/tags/rstats/</guid>
+      <guid>http://localhost:1313/tags/robo-a-cuentahabientes/</guid>
       <description></description>
     </item>
     
