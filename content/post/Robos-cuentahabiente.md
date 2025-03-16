@@ -42,8 +42,7 @@ de robos y un pico máximo a las 13:00 hrs. (68 robos), lo que sugiere
 que los delincuentes aprovechan el aumento de transacciones previo al
 fin de semana.
 
-<iframe title="Distribución de víctimas por rango de edad y sexo" aria-label="Gráfico de rangos" id="datawrapper-chart-KRbX1" src="https://datawrapper.dwcdn.net/KRbX1/4/" scrolling="no" frameborder="0" style="width: 100%; min-width: 100% !important; border: none;" height="400" data-external="1">
-</iframe>
+<iframe src="/js/G2.html" width="100%" height="500px" style="border: none; overflow: hidden; display: block;></iframe>
 
 Las características de las víctimas señalan que los cuentahabientes
 entre 30 y 39 años de edad fueron los de mayor riesgo, en especial los
@@ -54,3 +53,10 @@ la proporción de víctimas disminuye, siendo menor en los grupos de 50 a
 a personas en edad productiva. Es importante mencionar que, del total de
 víctimas, 7 de cada 10 fueron hombres, lo que remarca el riesgo
 enfrentado.
+
+<iframe title="Distribución de víctimas por rango de edad y sexo" aria-label="Gráfico de rangos" id="datawrapper-chart-KRbX1" src="https://datawrapper.dwcdn.net/KRbX1/4/" scrolling="no" frameborder="0" style="width: 100%; min-width: 100% !important; border: none;" height="400" data-external="1">
+</iframe>
+
+## Distribución Geográfica
+
+<iframe src="/js/M1.html" width="100%" height="500px" style="border: none; overflow: hidden; display: block;></iframe>
