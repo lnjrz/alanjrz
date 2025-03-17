@@ -85,7 +85,7 @@ De las 2 579 colonias consideradas por el INE en 2023, se identificó que en 20 
 Debido a lo anterior, una razón de riesgo entre robos y cajeros permite comparaciones homologadas. De tal forma la colonia de mayor riesgo relativo fue Santa María Aztahuacan en Iztapalapa, seguida por la colonia Morelos en Cuauhtémoc. Otras colonias con riesgo alto y alto número de robos fueron Anáhuac en Miguel Hidalgo o Tacubaya en Miguel Hidalgo.
 
 
-<div style="height: 40px;"></div>
+<div class="iframe-container">
 <iframe title="Relación entre riesgo relativo por colonia y número de robos" aria-label="Scatter Plot" id="datawrapper-chart-3sfSg" src="https://datawrapper.dwcdn.net/3sfSg/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="540" data-external="1"></iframe>
 </div>
 
