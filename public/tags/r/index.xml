@@ -7,11 +7,11 @@
     <language>en-us</language>
     <lastBuildDate>Sun, 16 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/r/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Análisis de robos en CDMX</title>
-      <link>http://localhost:1313/2025/03/16/an%C3%A1lisis-de-robos-en-cdmx/</link>
+      <title>Robos con violencia a cuentahabiente al salir del cajero</title>
+      <link>http://localhost:1313/2025/03/16/robos-con-violencia-a-cuentahabiente-al-salir-del-cajero/</link>
       <pubDate>Sun, 16 Mar 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2025/03/16/an%C3%A1lisis-de-robos-en-cdmx/</guid>
+      <guid>http://localhost:1313/2025/03/16/robos-con-violencia-a-cuentahabiente-al-salir-del-cajero/</guid>
       <description>&lt;h2 id=&#34;total-de-víctimas&#34;&gt;Total de víctimas&lt;/h2&gt;
 &lt;p&gt;Entre 2019 y 2024 , la cantidad de víctimas de robos a cuentahabiente al
 salir de cajero con violencia ha mostrado una clara tendencia
@@ -25,7 +25,7 @@ tendencia continuó a la baja, y en 2024 se registraron los mínimos
 históricos, con solo 8 robos en abril y septiembre, reflejando un cambio
 significativo en el comportamiento del delito.&lt;/p&gt;
 &lt;div class=&#34;iframe-container&#34;&gt;
-&lt;iframe title=&#34;Robos a cuentahabiente saliendo del cajero&#34; aria-label=&#34;Interactive line chart&#34; id=&#34;datawrapper-chart-WQyVk&#34; src=&#34;https://datawrapper.dwcdn.net/WQyVk/2/&#34; scrolling=&#34;no&#34; frameborder=&#34;0&#34; style=&#34;width: 100%; min-width: 100% !important; border: none;&#34; height=&#34;450&#34; data-external=&#34;1&#34;&gt;
+&lt;iframe title=&#34;Robos a cuentahabiente saliendo del cajero&#34; aria-label=&#34;Interactive line chart&#34; id=&#34;datawrapper-chart-WQyVk&#34; src=&#34;https://datawrapper.dwcdn.net/WQyVk/3/&#34; scrolling=&#34;no&#34; frameborder=&#34;0&#34; style=&#34;width: 100%; min-width: 100% !important; border: none;&#34; height=&#34;525&#34; data-external=&#34;1&#34;&gt;
 &lt;/iframe&gt;
 &lt;/div&gt;
 &lt;h2 id=&#34;características&#34;&gt;Características&lt;/h2&gt;
@@ -41,7 +41,20 @@ incidentes. El viernes es el día de mayor riesgo, con el 21% del total
 de robos y un pico máximo a las 13:00 hrs. (68 robos), lo que sugiere
 que los delincuentes aprovechan el aumento de transacciones previo al
 fin de semana.&lt;/p&gt;
-&lt;iframe src=&#34;http://localhost:1313/js/G2.html&#34; width=&#34;100%&#34; height=&#34;500px&#34; style=&#34;border: none; overflow: hidden; display: block;&#34;&gt;&lt;/iframe&gt;
+&lt;div class=&#34;iframe-container&#34;&gt;
+&lt;h4 style=&#34;font-family: &#39;Inter&#39;, sans-serif; font-size: 21px; font-weight: 700; text-align: left; margin-bottom: 10px;&#34;&gt;
+    Ocurrencia por día y hora de la semana
+&lt;/h4&gt;
+&lt;h6 style=&#34;font-family: &#39;Inter&#39;, sans-serif; font-size: 14px; font-weight: 500; text-align: left; margin-top: 2px;&#34;&gt;
+    Total acumulado del periodo
+&lt;/h6&gt;
+&lt;iframe src=&#34;http://localhost:1313/js/G2.html&#34; width=&#34;100%&#34; height=&#34;500px&#34; style=&#34;width:100%; min-width: 100% !important; border: none; overflow: hidden; display: block;&#34; height=&#34;100&#34;&gt;
+&lt;/iframe&gt;
+&lt;h6 style=&#34;font-family: &#39;Inter&#39;, sans-serif; font-size: 10px; font-weight: 600; text-align: left;  font-style: italic; margin-bottom: 10px;&#34;&gt;
+    Nota: No se consideran los registros para los que no se especificó el día y hora de ocurrencia.&lt;br&gt;
+    Gráfico: Alan Jrz Fuente: FGJ-CDMX
+&lt;/h6&gt;
+&lt;/div&gt;
 &lt;p&gt;Las características de las víctimas señalan que los cuentahabientes
 entre 30 y 39 años de edad fueron los de mayor riesgo, en especial los
 hombres ya que 32.4% de las víctimas de se situaron en ese rango de
@@ -51,13 +64,28 @@ la proporción de víctimas disminuye, siendo menor en los grupos de 50 a
 a personas en edad productiva. Es importante mencionar que, del total de
 víctimas, 7 de cada 10 fueron hombres, lo que remarca el riesgo
 enfrentado.&lt;/p&gt;
+&lt;div style=&#34;height: 40px;&#34;&gt;&lt;/div&gt;
 &lt;div class=&#34;iframe-container&#34;&gt;
-&lt;iframe title=&#34;Distribución de víctimas por rango de edad y sexo&#34; aria-label=&#34;Gráfico de rangos&#34; id=&#34;datawrapper-chart-KRbX1&#34; src=&#34;https://datawrapper.dwcdn.net/KRbX1/4/&#34; scrolling=&#34;no&#34; frameborder=&#34;0&#34; style=&#34;width: 100%; min-width: 100% !important; border: none;&#34; height=&#34;400&#34; data-external=&#34;1&#34;&gt;
+&lt;iframe title=&#34;Distribución de víctimas por rango de edad y sexo&#34; aria-label=&#34;Gráfico de rangos&#34; id=&#34;datawrapper-chart-KRbX1&#34; src=&#34;https://datawrapper.dwcdn.net/KRbX1/4/&#34; scrolling=&#34;no&#34; frameborder=&#34;0&#34; style=&#34;width: 100%; min-width: 100% !important; border: none;&#34; height=&#34;350&#34; data-external=&#34;1&#34;&gt;
 &lt;/iframe&gt;
 &lt;/div&gt;
 &lt;h2 id=&#34;distribución-geográfica&#34;&gt;Distribución Geográfica&lt;/h2&gt;
+&lt;div style=&#34;height: 40px;&#34;&gt;&lt;/div&gt;
+&lt;p&gt;De las 2 579 colonias consideradas por el INE en 2023, se identificó que en # ocurrieron #% del total de víctimas, con la colonia # con mayor ocurrencia durante el periodo de análisis. Al inbolucar a la cantidad de cajeros por colonia podríamos hacer una razón simple de riesgo, es decir, dividir la cantidad de robos violentos entre la cantidad de cajeros en la colonia. De tal forma se objtuvo que la colonia # presenta un riesgo mayor por cajero respecto a otras colonias como # o #.&lt;/p&gt;
+&lt;iframe title=&#34;Relación entre riesgo relativo por colonia y número de robos&#34; aria-label=&#34;Scatter Plot&#34; id=&#34;datawrapper-chart-3sfSg&#34; src=&#34;https://datawrapper.dwcdn.net/3sfSg/1/&#34; scrolling=&#34;no&#34; frameborder=&#34;0&#34; style=&#34;width: 0; min-width: 100% !important; border: none;&#34; height=&#34;464&#34; data-external=&#34;1&#34;&gt;&lt;/iframe&gt;
+&lt;div class=&#34;iframe-container&#34;&gt;
+&lt;h4 style=&#34;font-family: &#39;Inter&#39;, sans-serif; font-size: 21px; font-weight: 700; text-align: left; margin-bottom: 10px;&#34;&gt;
+    Identificación de hotspot y cajeros en riesgo
+&lt;/h4&gt;
+&lt;h6 style=&#34;font-family: &#39;Inter&#39;, sans-serif; font-size: 14px; font-weight: 500; text-align: left; margin-top: 2px;&#34;&gt;
+&lt;/h6&gt;
 &lt;iframe src=&#34;http://localhost:1313/js/M1.html&#34; width=&#34;100%&#34; height=&#34;500px&#34; style=&#34;border: none; overflow: hidden; display: block;&#34;&gt;&lt;/iframe&gt;
-&lt;p&gt;Por último, cabe la pregunta ¿qué tantos &amp;ldquo;asaltos comunes&amp;rdquo; ocurren a 150 metros de distancia de los cajeros? será una pregunta responder en una proxima entrada.&lt;/p&gt;
+&lt;h6 style=&#34;font-family: &#39;Inter&#39;, sans-serif; font-size: 10px; font-weight: 600; text-align: left;  font-style: italic; margin-bottom: 10px;&#34;&gt;
+    Nota: No se consideran los registros para los que no se especificó longitud y latitud.&lt;br&gt;
+    Fue utilizado el algoritmo DBSCAN con proximidad de ~150 metros y un minimo de 5 delitos.&lt;br&gt;
+    Gráfico: Alan Jrz Fuente: FGJ-CDMX y Banxico
+&lt;/h6&gt;
+&lt;/div&gt;
 </description>
     </item>
     

@@ -1,7 +1,8 @@
 ---
-title: "Análisis de robos en CDMX"
+title: "Robos con violencia a cuentahabiente al salir del cajero"
+subtitle: "CDMX de 2019 a 2024"
 author: "Alan Jrz"
-date: "2025-03-16"
+date: "2025-03-17"
 draft: false
 image: img/banner/blog1.jpg
 layout: post
@@ -77,7 +78,17 @@ enfrentado.
 </div>
 
 ## Distribución Geográfica
-<div style="height: 40px;"></div>
+<!--div style="height: 40px;"></div>--->
+
+De las 2 579 colonias consideradas por el INE en 2023, se identificó que en 20 de ellas tuvieron lugar 2 de cada 10 víctimas, es decir que, en 1% de las colonias de CDMX tuvieron lugar 20% de las víctimas. Si bien, se podría listar las colonias de mayor a menor número de víctimas, sin embargo, las comparaciones no serían adecuadas debido al número de cajeros en cada colonia. Por ejemplo, Polanco tuvo la mayor cantidad de víctimas (39) y la segunda cantidad de cajeros más alta con 168 y la media de cajeros por colonia son 3. 
+
+Debido a lo anterior, una razón de riesgo entre robos y cajeros permite comparaciones homologadas. De tal forma la colonia de mayor riesgo relativo fue Santa María Aztahuacan en Iztapalapa, seguida por la colonia Morelos en Cuauhtémoc. Otras colonias con riesgo alto y alto número de robos fueron Anáhuac en Miguel Hidalgo o Tacubaya en Miguel Hidalgo.
+
+<iframe title="Relación entre riesgo relativo por colonia y número de robos" aria-label="Scatter Plot" id="datawrapper-chart-3sfSg" src="https://datawrapper.dwcdn.net/3sfSg/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="464" data-external="1"></iframe>
+
+Los patrones anteriores, muestran que las víctimas y por lo tanto los asaltos tienden a agruparse, por ejemplo, en el 1% de las colonias. Por ello, no basta con identificar qué colonias son las de mayor riesgo, sino que también es necesario identificar en zona de las colonias el riesgo es mayor. Para ello, fueron identificados # puntos calientes (hotspots) donde fueron victimizadas almenos 5 personas y la distancia entre eventos fue menor o igual a 150 metros. 
+
+De tal forma, podemos saber que la región de mayor riesgo de la colonia Sta. M. Aztahuacán se encuentra sobre Av. Ermita Iztapalapa, a la altura de Av. Circunvalación, donde tuvieron lugar 18 víctimas y donde se ubican 7 cajeros, 5 de BBVA y 2 de Azteca.
 
 <div class="iframe-container">
 <h4 style="font-family: 'Inter', sans-serif; font-size: 21px; font-weight: 700; text-align: left; margin-bottom: 10px;">
@@ -93,3 +104,10 @@ enfrentado.
     Gráfico: Alan Jrz Fuente: FGJ-CDMX y Banxico
 </h6>
 </div>
+
+## Conclusión
+Desafortunadamente los datos sobre víctimas y carpetas de investigación a nivel coordenada geográfica han dejado de actualizarse, lo que hace imposible realizar análisis con información actualizada. Sin embargo, es posible argumentar que robos a cuentahabientes han mostrado una tendencia a la baja desde 2019, con una caída significativa en 2020 debido a la pandemia y una reducción sostenida desde 2023. La mayoría de los incidentes ocurren en horario bancario, con viernes a las 13:00 hrs. como el momento de mayor riesgo. Hombres de 30 a 39 años son las principales víctimas.
+
+A nivel espacial, el 20% de las víctimas se concentraron en solo el 1% de las colonias de CDMX. Sin embargo, debido a la variabilidad en el número de cajeros por colonia, se utilizó un ajuste de riesgo (robos/cajeros) para una comparación más precisa. Con esta metodología, Santa María Aztahuacan (Iztapalapa) y Morelos (Cuauhtémoc) presentan el mayor riesgo por cajero, seguidas por Anáhuac y Tacubaya (Miguel Hidalgo).
+
+Además, los delitos tienden a agruparse en puntos específicos dentro de cada colonia. Se identificaron hotspots donde al menos 5 víctimas fueron atacadas en un radio de 150 metros, lo que permite focalizar aún más la prevención. Por ejemplo, en Santa María Aztahuacan, el punto de mayor riesgo se encuentra en Av. Ermita Iztapalapa y Av. Circunvalación, donde 18 víctimas fueron atacadas cerca de 7 cajeros (5 de BBVA y 2 de Banco Azteca).
