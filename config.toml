@@ -1,5 +1,5 @@
 baseurl = "https://betaalanjrz.netlify.app/"
-title = "Alan Jrz"
+title = ""
 theme = "hugo-theme-cleanwhite"
 languageCode = "en-us"
 baseURL = "https://betaalanjrz.netlify.app/"
@@ -19,14 +19,14 @@ ignoreFiles = ["_files$", "_cache$"]
 
 [params]
   keep_md = true
-  header_image = "https://github.com/lnjrz/blanco/blob/main/top1.jpg?raw=true"
+  header_image = "https://github.com/lnjrz/blanco/blob/main/top2.png?raw=true"
   twitter_image = "https://cedricscherer.com/img/banner/banner.png"
   copyright = "Alan Jrz"
   SEOTitle = "Alan Jrz"
   title = "Alan Jrz"
   description = "Blog de Alan Jrz"
   keyword = "Data Visualization, Data Science, Computational Ecology, Infographics, ggplot2"
-  slogan = "Análisis de información y visualización" #Data Visualization & Computational Ecology #"Charts & False Promises"
+  slogan = "" #Data Visualization & Computational Ecology #"Charts & False Promises"
   google_fonts = ""
   title_404 = ""
   rssLimit = 20
