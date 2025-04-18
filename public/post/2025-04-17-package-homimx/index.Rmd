@@ -1,25 +1,29 @@
 ---
 title: "Package HomiMx para análisis de homicidios en México"
-subtitle: "V1.1"
 author: "Alan Jrz"
 date: "2025-04-17"
 draft: false
-image: img/banner/blog2.jpg
+image: img/banner/blog1.jpg
 layout: post
 description: "Esta entrada brinda una explicación breve sobre el funcionamiento de las funciones contenidas en mi package HomiMx."
 tags: ["Homicidios", "Inseguridad", "R", "Package"]
 chunk_output_type: inline
-
 ---
 
 ```{r setup, include = FALSE}
-knitr::opts_chunk$set(collapse = TRUE,comment = "#>")
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
 
-library(HomiMx)
+if (requireNamespace("HomiMx", quietly = TRUE)) {
+  library(HomiMx)
+}
+
 
 ```
 
-### Introducción
+## Introducción
 
 Este paquete permite generar tablas de homicidios con diferentes desagregaciones. La información corresponde a las defunciones por homicidio (agresiones) publicadas por el INEGI cada año. El periodo de registro de la información abarca de 1990 hasta 2023.
 
@@ -53,7 +57,7 @@ La función contiene cinco parametros, y solo es obligatorio especificar la base
 Si el usuario no especifica los parametros opcionales, la función mostrara una tabla por año de ocurrencia sin desagregación geográfica o edad, es decir, el total los homicidios que ocurrieron año con año como se muestra en la siguiente tabla:
 
 
-```{r echo=FALSE}
+```{r tabla_total, echo=FALSE}
 knitr::kable(
   head(tabla_total(homidata),10),
   caption = "Homicidios nacionales por año (año de ocurrencia)"
@@ -67,7 +71,7 @@ tabla_total(homidata, anio_tipo="registro", desagregacion="entidad", geo_tipo="o
 
 ```
 
-```{r echo=FALSE}
+```{r tabla_total_com, echo=FALSE}
 knitr::kable(
   head(tabla_total(homidata, anio_tipo = "registro",desagregacion = "entidad",geo_tipo = "ocurrencia", edad = 12:17),10),
   caption = "Homicidios nacionales por año (año de registro)"
@@ -91,7 +95,7 @@ tabla_causa(homidata, anio_tipo = "registro", desagregacion = "entidad", geo_tip
 
 Y genera la siguiente tabla:
 
-```{r echo=FALSE}
+```{r tabla_causa_com, echo=FALSE}
 knitr::kable(
   head(tabla_causa(homidata, anio_tipo = "registro", desagregacion = "entidad", geo_tipo = "ocurrencia", sexo="hombres", edad=18:49),10),
   caption = "Homicidios de hombres entre 18 y 49 años por año de registro y entidad según causa de defunción"

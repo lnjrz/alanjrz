@@ -1,0 +1,358 @@
+---
+title: "Package HomiMx para análisis de homicidios en México"
+subtitle: "V1.1"
+author: "Alan Jrz"
+date: "2025-04-17"
+draft: false
+image: img/banner/blog2.jpg
+layout: post
+description: "Esta entrada brinda una explicación breve sobre el funcionamiento de las funciones contenidas en mi package HomiMx."
+tags: ["Homicidios", "Inseguridad", "R", "Package"]
+chunk_output_type: inline
+output:
+  rmarkdown::html_document:
+    toc: false
+
+---
+
+
+
+<div id="introducción" class="section level3">
+<h3>Introducción</h3>
+<p>Este paquete permite generar tablas de homicidios con diferentes desagregaciones. La información corresponde a las defunciones por homicidio (agresiones) publicadas por el INEGI cada año. El periodo de registro de la información abarca de 1990 hasta 2023.</p>
+<p>Mediante el procesamiento de las 33 bases de datos anuales, fue obtenida una base de datos que integra los homicidios de todo el periodo. Para ello, se utilizaron equivalencias de la CIE-9 y CIE-10. Además de homologación de variables entre los diferentes años, como: causa de la defunción, ocupación, nivel educativo, estado civil, lugar de ocurrencia, mes, día y hora.</p>
+<p>A través de funciones como <em>tabla_total()</em> y <em>tabla_causa()</em>, es posible obtener el total de homicidios por año de registro u ocurrencia. Además, hacer desagregaciones por sexo, entidad y municipio.</p>
+<p>Como se mencionó, toda la información es contenida en una base de datos llamada “homidata”. Las funciones para la versión 1.0.0 son las siguientes</p>
+<pre class="r"><code># Funciones en el package homiMx
+tabla_total()
+tabla_causa()
+tabla_ocupacion()
+tabla_educacion()
+tabla_edocivil()
+tabla_lugar()
+tabla_mes()
+tabla_dia()
+tabla_hora()
+</code></pre>
+<p>Por simpleza de esta viñeta, a continuación se explica el funcionamiento de la función <em>tabla_total()</em> y <em>tabla_causa()</em>, ya que el resto de funciones siguen la misma lógica de funcionamiento.</p>
+</div>
+<div id="función-tabla_total" class="section level2">
+<h2>Función <em>tabla_total()</em></h2>
+<p>La función contiene cinco parametros, y solo es obligatorio especificar la base de datos <strong><em>(homidata)</em></strong>. Opcionalmente, el usuario puede especificar <em>anio_tipo</em>, es decir el año de “ocurrencia” o “registro”. También puede selecionar la desagregación por “entidad” o “municipio” mediante el parametro <em>desagregacion</em> y especificar la desagregación geográfica como “registro” u “ocurrencia” con el parametro <em>geo_tipo</em>. Asimismo, si el usuario está interesado en conocer homicidios de edades especificas o rangos de edades, puede usar el parametro <em>edad</em>.</p>
+<p>Si el usuario no especifica los parametros opcionales, la función mostrara una tabla por año de ocurrencia sin desagregación geográfica o edad, es decir, el total los homicidios que ocurrieron año con año como se muestra en la siguiente tabla:</p>
+<table>
+<caption><span id="tab:unnamed-chunk-2">Table 1: </span>Homicidios nacionales por año (año de ocurrencia)</caption>
+<thead>
+<tr class="header">
+<th align="left">ANIO_OCUR</th>
+<th align="right">Total</th>
+<th align="right">Hombres</th>
+<th align="right">Mujeres</th>
+<th align="right">NE</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1900</td>
+<td align="right">66</td>
+<td align="right">51</td>
+<td align="right">12</td>
+<td align="right">3</td>
+</tr>
+<tr class="even">
+<td align="left">1901</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">1903</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">1904</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">1905</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">1907</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">1908</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">1909</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">1910</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">1911</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
+<p>Al usar los parametros, es posible obtener una tabla por año de registro, entidad o municipio de ocurrencia y para personas en un rango de edad, en este caso personas entre 12 y 17 años de edad:</p>
+<pre class="r"><code># Estructura completa
+tabla_total(homidata, anio_tipo=&quot;registro&quot;, desagregacion=&quot;entidad&quot;, geo_tipo=&quot;ocurrencia&quot;, edad = 12:17)
+</code></pre>
+<table>
+<caption><span id="tab:unnamed-chunk-4">Table 2: </span>Homicidios nacionales por año (año de registro)</caption>
+<thead>
+<tr class="header">
+<th align="left">ANIO_REGIS</th>
+<th align="left">ENT_OCURR</th>
+<th align="right">Total</th>
+<th align="right">Hombres</th>
+<th align="right">Mujeres</th>
+<th align="right">NE</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1990</td>
+<td align="left">01</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">1990</td>
+<td align="left">02</td>
+<td align="right">13</td>
+<td align="right">11</td>
+<td align="right">2</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">1990</td>
+<td align="left">03</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">1990</td>
+<td align="left">04</td>
+<td align="right">9</td>
+<td align="right">5</td>
+<td align="right">4</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">1990</td>
+<td align="left">05</td>
+<td align="right">15</td>
+<td align="right">14</td>
+<td align="right">1</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">1990</td>
+<td align="left">06</td>
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">1990</td>
+<td align="left">07</td>
+<td align="right">17</td>
+<td align="right">13</td>
+<td align="right">4</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">1990</td>
+<td align="left">08</td>
+<td align="right">20</td>
+<td align="right">18</td>
+<td align="right">2</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">1990</td>
+<td align="left">09</td>
+<td align="right">81</td>
+<td align="right">74</td>
+<td align="right">7</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">1990</td>
+<td align="left">10</td>
+<td align="right">23</td>
+<td align="right">21</td>
+<td align="right">1</td>
+<td align="right">1</td>
+</tr>
+</tbody>
+</table>
+<p>Como se puede observar, esta función proporciona cinco columnas en su forma predeterminada, una para los años y el resto para la desagregación por sexo. Al usar los parámetros, la función proporciona una columna que contiene la clave oficial de la entidad federativa o del municipio.</p>
+<p>Al respecto, este package cuenta con catalogos de las entidades federativas <strong><em>cat_entidades</em></strong> y de los municipios <strong><em>cat_municipios</em></strong>, para facilitar la identificación por nombre de los diferentes ámbitos geográficos.</p>
+</div>
+<div id="función-tabla_causa" class="section level2">
+<h2>Función <em>tabla_causa()</em></h2>
+<p>La principal diferencia de esta función (y del resto de funciones) con la función <strong>tabla_total()</strong>, es que las columnas de la tabla generada corresponden a las categorías de la función y no al sexo. En este caso, muestra las causas de la defunción listadas en CIE-10 y CIE-9, las cuales fueron reclasificadas mediante equivalencias para obtener homicidios cometidos por: <em>disparo de arma de fuego</em>, <em>agresión con objeto cortante o punzante</em>, <em>ahorcamiento, extrangulamiento o asfixia</em>, <em>otros medio</em> y <em>medios no especificados</em>.</p>
+<p>Por ello, la estructura de la función tiene una pequeña variación, incorporando el paramétro <em>sexo</em> el cual puede tomar el valor “hombres” o “mujeres” y por defecto muestra el total. De tal forma, la función completa se construye de la siguiente manera:</p>
+<pre class="r"><code># Estructura completa
+tabla_causa(homidata, anio_tipo = &quot;registro&quot;, desagregacion = &quot;entidad&quot;, geo_tipo = &quot;ocurrencia&quot;, sexo=&quot;hombres&quot;, edad = 18:49)
+</code></pre>
+<p>Y genera la siguiente tabla:</p>
+<table>
+<caption><span id="tab:unnamed-chunk-6">Table 3: </span>Homicidios de hombres entre 18 y 49 años por año de registro y entidad según causa de defunción</caption>
+<colgroup>
+<col width="14%" />
+<col width="13%" />
+<col width="14%" />
+<col width="18%" />
+<col width="10%" />
+<col width="7%" />
+<col width="21%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">ANIO_REGIS</th>
+<th align="left">ENT_OCURR</th>
+<th align="right">arma_fuego</th>
+<th align="right">arma_cortante</th>
+<th align="right">asfixia</th>
+<th align="right">otros</th>
+<th align="right">no_especificado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1990</td>
+<td align="left">01</td>
+<td align="right">13</td>
+<td align="right">5</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">10</td>
+</tr>
+<tr class="even">
+<td align="left">1990</td>
+<td align="left">02</td>
+<td align="right">110</td>
+<td align="right">62</td>
+<td align="right">4</td>
+<td align="right">0</td>
+<td align="right">12</td>
+</tr>
+<tr class="odd">
+<td align="left">1990</td>
+<td align="left">03</td>
+<td align="right">2</td>
+<td align="right">6</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">1990</td>
+<td align="left">04</td>
+<td align="right">26</td>
+<td align="right">23</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td align="left">1990</td>
+<td align="left">05</td>
+<td align="right">80</td>
+<td align="right">35</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">15</td>
+</tr>
+<tr class="even">
+<td align="left">1990</td>
+<td align="left">06</td>
+<td align="right">31</td>
+<td align="right">14</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">7</td>
+</tr>
+<tr class="odd">
+<td align="left">1990</td>
+<td align="left">07</td>
+<td align="right">70</td>
+<td align="right">39</td>
+<td align="right">16</td>
+<td align="right">5</td>
+<td align="right">34</td>
+</tr>
+<tr class="even">
+<td align="left">1990</td>
+<td align="left">08</td>
+<td align="right">128</td>
+<td align="right">54</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">35</td>
+</tr>
+<tr class="odd">
+<td align="left">1990</td>
+<td align="left">09</td>
+<td align="right">443</td>
+<td align="right">126</td>
+<td align="right">36</td>
+<td align="right">58</td>
+<td align="right">213</td>
+</tr>
+<tr class="even">
+<td align="left">1990</td>
+<td align="left">10</td>
+<td align="right">174</td>
+<td align="right">15</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">7</td>
+</tr>
+</tbody>
+</table>
+<p>La estructura del resto de funciones está pensanda de la misma forma.</p>
+</div>
+<div id="cómo-acceder-a-esta-viñeta" class="section level2">
+<h2>Cómo acceder a esta viñeta</h2>
+<p>Puedes acceder a esta viñeta desde R con:</p>
+<pre class="r"><code>browseVignettes(&quot;homiMx&quot;)</code></pre>
+</div>

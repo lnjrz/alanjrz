@@ -5,13 +5,418 @@
     <description>Recent content on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 17 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 17 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
       <link>http://localhost:1313/</link>
-      <pubDate>Mon, 17 Mar 2025 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 17 Apr 2025 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Homicidios</title>
+      <link>http://localhost:1313/tags/homicidios/</link>
+      <pubDate>Thu, 17 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/homicidios/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Inseguridad</title>
+      <link>http://localhost:1313/tags/inseguridad/</link>
+      <pubDate>Thu, 17 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/inseguridad/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Package</title>
+      <link>http://localhost:1313/tags/package/</link>
+      <pubDate>Thu, 17 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/package/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Package HomiMx para análisis de homicidios en México</title>
+      <link>http://localhost:1313/2025/04/17/package-homimx-para-an%C3%A1lisis-de-homicidios-en-m%C3%A9xico/</link>
+      <pubDate>Thu, 17 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/2025/04/17/package-homimx-para-an%C3%A1lisis-de-homicidios-en-m%C3%A9xico/</guid>
+      <description>
+
+
+&lt;div id=&#34;introducción&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Introducción&lt;/h3&gt;
+&lt;p&gt;Este paquete permite generar tablas de homicidios con diferentes desagregaciones. La información corresponde a las defunciones por homicidio (agresiones) publicadas por el INEGI cada año. El periodo de registro de la información abarca de 1990 hasta 2023.&lt;/p&gt;
+&lt;p&gt;Mediante el procesamiento de las 33 bases de datos anuales, fue obtenida una base de datos que integra los homicidios de todo el periodo. Para ello, se utilizaron equivalencias de la CIE-9 y CIE-10. Además de homologación de variables entre los diferentes años, como: causa de la defunción, ocupación, nivel educativo, estado civil, lugar de ocurrencia, mes, día y hora.&lt;/p&gt;
+&lt;p&gt;A través de funciones como &lt;em&gt;tabla_total()&lt;/em&gt; y &lt;em&gt;tabla_causa()&lt;/em&gt;, es posible obtener el total de homicidios por año de registro u ocurrencia. Además, hacer desagregaciones por sexo, entidad y municipio.&lt;/p&gt;
+&lt;p&gt;Como se mencionó, toda la información es contenida en una base de datos llamada “homidata”. Las funciones para la versión 1.0.0 son las siguientes&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Funciones en el package homiMx
+tabla_total()
+tabla_causa()
+tabla_ocupacion()
+tabla_educacion()
+tabla_edocivil()
+tabla_lugar()
+tabla_mes()
+tabla_dia()
+tabla_hora()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Por simpleza de esta viñeta, a continuación se explica el funcionamiento de la función &lt;em&gt;tabla_total()&lt;/em&gt; y &lt;em&gt;tabla_causa()&lt;/em&gt;, ya que el resto de funciones siguen la misma lógica de funcionamiento.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;función-tabla_total&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Función &lt;em&gt;tabla_total()&lt;/em&gt;&lt;/h2&gt;
+&lt;p&gt;La función contiene cinco parametros, y solo es obligatorio especificar la base de datos &lt;strong&gt;&lt;em&gt;(homidata)&lt;/em&gt;&lt;/strong&gt;. Opcionalmente, el usuario puede especificar &lt;em&gt;anio_tipo&lt;/em&gt;, es decir el año de “ocurrencia” o “registro”. También puede selecionar la desagregación por “entidad” o “municipio” mediante el parametro &lt;em&gt;desagregacion&lt;/em&gt; y especificar la desagregación geográfica como “registro” u “ocurrencia” con el parametro &lt;em&gt;geo_tipo&lt;/em&gt;. Asimismo, si el usuario está interesado en conocer homicidios de edades especificas o rangos de edades, puede usar el parametro &lt;em&gt;edad&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Si el usuario no especifica los parametros opcionales, la función mostrara una tabla por año de ocurrencia sin desagregación geográfica o edad, es decir, el total los homicidios que ocurrieron año con año como se muestra en la siguiente tabla:&lt;/p&gt;
+&lt;table&gt;
+&lt;caption&gt;&lt;span id=&#34;tab:unnamed-chunk-2&#34;&gt;Table 1: &lt;/span&gt;Homicidios nacionales por año (año de ocurrencia)&lt;/caption&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;left&#34;&gt;ANIO_OCUR&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Total&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Hombres&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Mujeres&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;NE&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;1900&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;66&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;51&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;12&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;1901&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;1903&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;1904&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;1905&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;3&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;3&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;1907&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;1908&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;1909&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;1910&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;1911&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Al usar los parametros, es posible obtener una tabla por año de registro, entidad o municipio de ocurrencia y para personas en un rango de edad, en este caso personas entre 12 y 17 años de edad:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Estructura completa
+tabla_total(homidata, anio_tipo=&amp;quot;registro&amp;quot;, desagregacion=&amp;quot;entidad&amp;quot;, geo_tipo=&amp;quot;ocurrencia&amp;quot;, edad = 12:17)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;caption&gt;&lt;span id=&#34;tab:unnamed-chunk-4&#34;&gt;Table 2: &lt;/span&gt;Homicidios nacionales por año (año de registro)&lt;/caption&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;left&#34;&gt;ANIO_REGIS&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;ENT_OCURR&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Total&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Hombres&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Mujeres&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;NE&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;1990&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;01&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;3&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;1990&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;02&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;13&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;11&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;1990&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;03&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;1990&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;04&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;9&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;5&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;4&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;1990&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;05&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;15&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;14&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;1990&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;06&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;1990&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;07&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;17&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;13&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;4&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;1990&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;08&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;20&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;18&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;1990&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;09&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;81&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;74&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;7&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;1990&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;10&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;23&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;21&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Como se puede observar, esta función proporciona cinco columnas en su forma predeterminada, una para los años y el resto para la desagregación por sexo. Al usar los parámetros, la función proporciona una columna que contiene la clave oficial de la entidad federativa o del municipio.&lt;/p&gt;
+&lt;p&gt;Al respecto, este package cuenta con catalogos de las entidades federativas &lt;strong&gt;&lt;em&gt;cat_entidades&lt;/em&gt;&lt;/strong&gt; y de los municipios &lt;strong&gt;&lt;em&gt;cat_municipios&lt;/em&gt;&lt;/strong&gt;, para facilitar la identificación por nombre de los diferentes ámbitos geográficos.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;función-tabla_causa&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Función &lt;em&gt;tabla_causa()&lt;/em&gt;&lt;/h2&gt;
+&lt;p&gt;La principal diferencia de esta función (y del resto de funciones) con la función &lt;strong&gt;tabla_total()&lt;/strong&gt;, es que las columnas de la tabla generada corresponden a las categorías de la función y no al sexo. En este caso, muestra las causas de la defunción listadas en CIE-10 y CIE-9, las cuales fueron reclasificadas mediante equivalencias para obtener homicidios cometidos por: &lt;em&gt;disparo de arma de fuego&lt;/em&gt;, &lt;em&gt;agresión con objeto cortante o punzante&lt;/em&gt;, &lt;em&gt;ahorcamiento, extrangulamiento o asfixia&lt;/em&gt;, &lt;em&gt;otros medio&lt;/em&gt; y &lt;em&gt;medios no especificados&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Por ello, la estructura de la función tiene una pequeña variación, incorporando el paramétro &lt;em&gt;sexo&lt;/em&gt; el cual puede tomar el valor “hombres” o “mujeres” y por defecto muestra el total. De tal forma, la función completa se construye de la siguiente manera:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Estructura completa
+tabla_causa(homidata, anio_tipo = &amp;quot;registro&amp;quot;, desagregacion = &amp;quot;entidad&amp;quot;, geo_tipo = &amp;quot;ocurrencia&amp;quot;, sexo=&amp;quot;hombres&amp;quot;, edad = 18:49)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Y genera la siguiente tabla:&lt;/p&gt;
+&lt;table&gt;
+&lt;caption&gt;&lt;span id=&#34;tab:unnamed-chunk-6&#34;&gt;Table 3: &lt;/span&gt;Homicidios de hombres entre 18 y 49 años por año de registro y entidad según causa de defunción&lt;/caption&gt;
+&lt;colgroup&gt;
+&lt;col width=&#34;14%&#34; /&gt;
+&lt;col width=&#34;13%&#34; /&gt;
+&lt;col width=&#34;14%&#34; /&gt;
+&lt;col width=&#34;18%&#34; /&gt;
+&lt;col width=&#34;10%&#34; /&gt;
+&lt;col width=&#34;7%&#34; /&gt;
+&lt;col width=&#34;21%&#34; /&gt;
+&lt;/colgroup&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;left&#34;&gt;ANIO_REGIS&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;ENT_OCURR&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;arma_fuego&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;arma_cortante&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;asfixia&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;otros&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;no_especificado&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;1990&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;01&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;13&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;5&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;10&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;1990&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;02&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;110&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;62&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;4&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;12&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;1990&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;03&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;6&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;1990&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;04&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;26&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;23&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;1990&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;05&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;80&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;35&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;15&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;1990&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;06&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;31&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;14&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;7&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;1990&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;07&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;70&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;39&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;16&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;5&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;34&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;1990&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;08&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;128&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;54&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;4&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;35&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;1990&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;09&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;443&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;126&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;36&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;58&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;213&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;1990&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;10&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;174&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;15&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;7&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;La estructura del resto de funciones está pensanda de la misma forma.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;cómo-acceder-a-esta-viñeta&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Cómo acceder a esta viñeta&lt;/h2&gt;
+&lt;p&gt;Puedes acceder a esta viñeta desde R con:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;browseVignettes(&amp;quot;homiMx&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Posts</title>
+      <link>http://localhost:1313/post/</link>
+      <pubDate>Thu, 17 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R</title>
+      <link>http://localhost:1313/tags/r/</link>
+      <pubDate>Thu, 17 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tags</title>
+      <link>http://localhost:1313/tags/</link>
+      <pubDate>Thu, 17 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/</guid>
       <description></description>
     </item>
     
@@ -21,33 +426,6 @@
       <pubDate>Mon, 17 Mar 2025 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/tags/hotspot/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Inseguridad</title>
-      <link>http://localhost:1313/tags/inseguridad/</link>
-      <pubDate>Mon, 17 Mar 2025 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/inseguridad/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Posts</title>
-      <link>http://localhost:1313/post/</link>
-      <pubDate>Mon, 17 Mar 2025 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/post/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>R</title>
-      <link>http://localhost:1313/tags/r/</link>
-      <pubDate>Mon, 17 Mar 2025 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/r/</guid>
       <description></description>
     </item>
     
@@ -150,15 +528,6 @@ enfrentado.&lt;/b&gt;&lt;/p&gt;
 &lt;p&gt;A nivel espacial, &lt;b&gt;el 20% de las víctimas se concentraron en solo el 1% de las colonias de la CDMX.&lt;/b&gt; Para realizar una comparación más precisa, se utilizó un &lt;b&gt;ajuste de riesgo (robos/cajeros)&lt;/b&gt;, lo que reveló que &lt;b&gt;Santa María Aztahuacan (Iztapalapa)&lt;/b&gt; presentan el mayor riesgo por cajero.&lt;/p&gt;
 &lt;p&gt;Además, los delitos tienden a &lt;b&gt;concentrarse en puntos específicos dentro de cada colonia.&lt;/b&gt; Se identificaron &lt;b&gt;hotspots&lt;/b&gt; donde al menos &lt;b&gt;5 víctimas fueron atacadas en un radio de 150 metros&lt;/b&gt;, permitiendo una &lt;b&gt;focalización más precisa de la prevención.&lt;/b&gt; Un ejemplo es &lt;b&gt;Santa María Aztahuacan&lt;/b&gt;, donde el punto de mayor riesgo se ubica en &lt;b&gt;Av. Ermita Iztapalapa y Av. Circunvalación&lt;/b&gt;, con 18 víctimas cerca de &lt;b&gt;7 cajeros automáticos (5 de BBVA y 2 de Banco Azteca).&lt;/b&gt;&lt;/p&gt;
 </description>
-    </item>
-    
-    <item>
-      <title>Tags</title>
-      <link>http://localhost:1313/tags/</link>
-      <pubDate>Mon, 17 Mar 2025 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/</guid>
-      <description></description>
     </item>
     
     <item>
@@ -2420,78 +2789,6 @@ Birkenstra&amp;szlig;e 18&lt;br /&gt;
 S&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>http://localhost:1313/top/research/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/top/research/</guid>
-      <description>&lt;h3 id=&#34;overview-of-research-projects&#34;&gt;Overview of Research Projects&lt;/h3&gt;
-&lt;p&gt;As a computational scientist, I apply analytic and mechanistic modeling approaches to answer questions related to the &lt;strong&gt;movement ecology of animals and the dynamics of populations, communities and diseases in space and time&lt;/strong&gt;. By using empirical and simulated data, I investigate how disease dynamics are influenced by &lt;a href=&#34;https://doi.org/10.1111/oik.07002&#34;&gt;movement behavior&lt;/a&gt;, &lt;a href=&#34;https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.13076&#34;&gt;landscape structure&lt;/a&gt; and &lt;a href=&#34;https://doi.org/10.1111/1365-2656.13070&#34;&gt;seasonality&lt;/a&gt;, how &lt;a href=&#34;https://doi.org/10.1111/ele.13226&#34;&gt;disturbances affect stability measures of ecological communities&lt;/a&gt;, and how &lt;a href=&#34;https://doi.org/10.1016/j.ecolmodel.2015.07.005&#34;&gt;birds respond to global change&lt;/a&gt;.&lt;/p&gt;
-&lt;h5 id=&#34;content&#34;&gt;Content&lt;/h5&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#biomove&#34;&gt;BioMove&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#nlmr&#34;&gt;NLMR (Neutral Landscape Models in R)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#stability&#34;&gt;Multidimensionality of Stability&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#aft&#34;&gt;AFT (Animal Functional Type Approach)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&#34;biomove&#34;&gt;BioMove (PhD Thesis)&lt;/h4&gt;
-&lt;p&gt;The &lt;a href=&#34;https://www.dfg.de/en/funded_projects/current_projects_programmes/list/index.jsp?id=GRK&#34;&gt;DFG&lt;/a&gt; funded Research Training Group &lt;a href=&#34;https://www.biomove.org/&#34;&gt;&amp;lsquo;Integrating &lt;strong&gt;Biodiversity Research&lt;/strong&gt; with &lt;strong&gt;Movement Ecology&lt;/strong&gt; in dynamic agricultural landscapes (BioMove)&amp;rsquo;&lt;/a&gt; aims to:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;link innovative individual research projects that overcome the apparent gap between movement ecology and biodiversity research, employing a joint conceptual framework;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;strategically combine empirical, experimental and modelling approaches based in one common study area (&lt;a href=&#34;https://deims.org/270a41c4-33a8-4da6-9258-2ab10916f262&#34;&gt;AgroScapeLab-Quillow&lt;/a&gt;, Brandenburg, Germany) of sufficient size to address questions of varying spatial scales;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;pursue bottom-up and top-down approaches (i.e., study the influence of individual movement processes on biodiversity and infer movement mechanisms from biodiversity patterns, respectively) to better understand possible consequences of movement changes on biodiversity;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;link impacts of land-use on resource availability, landscape structures and disturbance regimes to movement processes of organisms of different taxa to identify common factors that influence biodiversity patterns.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;BioMove is a joint project of the &lt;a href=&#34;https://www.uni-potsdam.de/&#34;&gt;University of Potsdam&lt;/a&gt; together with &lt;a href=&#34;https://www.fu-berlin.de/&#34;&gt;Freie Universität Berlin&lt;/a&gt;, &lt;a href=&#34;http://www.izw-berlin.de/welcome.html&#34;&gt;Leibniz Institute for Zoo and Wildlife Research (IZW)&lt;/a&gt; and &lt;a href=&#34;http://www.zalf.de/en/Pages/ZALF.aspx&#34;&gt;Leibniz Centre for Agricultural Landscape Research (ZALF)&lt;/a&gt; led by &lt;a href=&#34;https://www.uni-potsdam.de/ibb-vegnat/members/prof-dr-florian-jeltsch.html&#34;&gt;Prof. Dr. Florian Jeltsch&lt;/a&gt; that started in October 2015. We explained the general framework idea of in a &lt;a href=&#34;https://doi.org/10.1111/brv.12600&#34;&gt;joint review paper entitled &amp;ldquo;Movement-mediated community assembly and coexistence&amp;rdquo;&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Movement plays a major role in shaping population densities and contact rates among individuals, two factors that are particularly relevant for disease outbreaks. Although any differences in movement behavior due to individual characteristics of the host and heterogeneity in landscape structure are likely to have considerable consequences for disease dynamics, these mechanisms are neglected in most epidemiological studies. Therefore, developing a general understanding how the interaction of movement behavior and spatial heterogeneity shapes host densities, contact rates and ultimately pathogen spread is a key question in ecological and epidemiological research.&lt;/p&gt;
-&lt;p&gt;In my PhD project, I have addressed this gap using both theoretical and empirical modelling approaches. In the theoretical part of my thesis, we have investigated bottom-up effects of individual movement behavior and landscape structure on host density, contact rates, and ultimately disease dynamics. We have extended an established &lt;a href=&#34;https://doi.org/10.1111/oik.07002&#34;&gt;agent-based model that simulates ecological and epidemiological key processes to incorporate explicit movement of host individuals and landscape complexity&lt;/a&gt;. In the empirical part, we have focused on the &lt;a href=&#34;https://doi.org/10.1111/1365-2656.13070&#34;&gt;spatiotemporal dynamics of Classical Swine Fever in a wild boar population&lt;/a&gt; by analyzing epidemiological data that was collected during an outbreak in Northern Germany persisting for eight years.&lt;/p&gt;
-&lt;p&gt;In the follow-up project, we use an extended version of the individual-based model to investigate different host-pathogen coexistence patterns under the effect of dynamic resource landscapes and the role of dispersal in the evolution of pathogenic virulence.&lt;/p&gt;
-&lt;h4 id=&#34;nlmr&#34;&gt;NLMR (Neutral Landscape Models in R)&lt;/h4&gt;
-&lt;p&gt;Neutral landscape models (NLMs) are algorithms which generate landscape patterns in the absence of biotic and abiotic processes. &lt;a href=&#34;https://doi.org/10.2307/3546007&#34;&gt;With and King (1997)&lt;/a&gt; outlined three uses for NLMs which were further highlighted by &lt;a href=&#34;https://link.springer.com/book/10.1007%2F978-1-4939-2794-4&#34;&gt;Turner and Gardner (2015)&lt;/a&gt;:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;coupling ecological models with NLMs to predict changes in ecological processes,&lt;/li&gt;
-&lt;li&gt;analyze the extent of structural deviation between real and neutral landscapes, and&lt;/li&gt;
-&lt;li&gt;development and testing of novel landscape metrics.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;NLMs are often used for spatially explicit models to explore effects of changes in landscape structure on processes such as connectivity between suitable patches or disease spread. During the beginning of our PhD projects, Marco Sciaini and I were not happy about the possibilities to modify NLMs with the current software, especially in R that we use for the analyses of our simulations. This was the rise of the &amp;ldquo;Neutral Landscape Models in R&amp;rdquo; (NLMR) project (splitted into the two packages &lt;code&gt;{NLMR}&lt;/code&gt; and &lt;code&gt;{landscapetools}&lt;/code&gt;) under the main lead of Marco.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://ropensci.github.io/NLMR/index.html&#34;&gt;&lt;code&gt;{NLMR}&lt;/code&gt;&lt;/a&gt; is an R package with a comprehensive collection of algorithms with which to simulate neutral landscape models (NLMs). In combination with &lt;a href=&#34;https://github.com/ropensci/landscapetools&#34;&gt;&lt;code&gt;{landscapetools}&lt;/code&gt;&lt;/a&gt;, a utility toolbox to modify simulated NLMs and other raster data, this suite of packages provides a utility toolbox which facilitates an easy workflow with simulated NLMs and other raster data. Both packages are reviewed by the amazing &lt;a href=&#34;https://ropensci.org/&#34;&gt;rOpenSci&lt;/a&gt; community and published in &amp;ldquo;Methods in Ecology and Evolution&amp;rdquo;: &lt;a href=&#34;https://doi.org/10.1111/2041-210X.13076&#34;&gt;&lt;code&gt;NLMR&lt;/code&gt; and &lt;code&gt;landscapetools&lt;/code&gt;: An integrated environment for simulating and modifying neutral landscape models in R&lt;/a&gt;.&lt;/p&gt;
-&lt;h4 id=&#34;stability&#34;&gt;Multidimensionality of Stability&lt;/h4&gt;
-&lt;p&gt;Ecosystems respond in various ways to disturbances and quantifying ecological stability therefore requires inspecting multiple stability properties, such as resistance, recovery, persistence and invariability. Correlations among these properties can reduce the dimensionality of stability, simplifying the study of environmental effects on ecosystems. In an important work, &lt;a href=&#34;https://doi.org/10.1111/ele.12086&#34;&gt;Donohue et al. (2013)&lt;/a&gt; showed that when disturbed by consumer removal, the dimensionality of stability increased in marine shore communities. However, it is unclear if such conclusions can be extrapolated to other kinds of disturbance. Integration of modelling and empirical studies is urgently needed, but impeded, according to our review, by the fact that a specific model type usually addresses a certain level of organization, and, respectively, can incorporate only mechanisms of resilience corresponding to this level. Additionally, processes corresponding to resilience mechanisms such as phenotypic plasticity and genetic variability can be incorporated in only one model class, the full-flex individual-based models. In this project we suggest that the individual-based framework, due to its flexibility, has a huge potential in integrating the processes covering mechanisms of resilience at all organization levels.&lt;/p&gt;
-&lt;p&gt;Using five process-based, spatially-explicit models we assessed how the intensity and the type of disturbance affect different stability metrics at the population and community levels &lt;a href=&#34;https://doi.org/10.1111/ele.13226&#34;&gt;(Radchuk et al. 2019)&lt;/a&gt;. Our models are well tested and structurally realistic, and represent five different communities varying in species richness and the number of trophic levels. We tested the effect of three disturbance types (random, species‐specific, local) applied at four intensity levels and found that disturbance type but not intensity affected the dimensionality of stability and only at the population level. The dimensionality of stability also varied greatly among species and communities.&lt;/p&gt;
-&lt;h4 id=&#34;aft&#34;&gt;AFT (Animal Functional Type Approach)&lt;/h4&gt;
-&lt;p&gt;The need to transfer knowledge gained from single species to a more generalized approach has led to the development of categorization systems where species’ similarities in life strategies and traits are classified into ecological
-groups like functional groups/types or guilds. While approaches in plant ecology undergo a steady improvement and refinement of methodologies, progression in animal ecology is lagging behind. Motivated by a &lt;a href=&#34;https://link.springer.com/article/10.1007/s10531-011-9995-1&#34;&gt;review led by Niels Blaum&lt;/a&gt;, the aim of the AFT project is to initiate a further development of functional classification systems in animal ecology, comparable to recent developments in plant ecology.&lt;/p&gt;
-&lt;p&gt;In my Master&amp;rsquo;s thesis I have used an animal functional type classification to investigate responses of birds to climatic and land use changes in semi-arid African savannas &lt;a href=&#34;https://doi.org/10.1016/j.ecolmodel.2015.07.005&#34;&gt;using a trait-based and individual-based model&lt;/a&gt;. The functional types are characterized by different traits, in particular body mass, which is related to life-history traits (reproduction and mortality) and spatial scales (home range area and dispersal ability), as well as the use of vegetation structures for foraging and nesting, which is related to habitat quality and suitability. We tested the performance of the functional types in artificial landscapes varying in shrub:grass ratio and patchiness. We found that an increase in shrub encroachment and a decrease in habitat quality caused by land use mismanagement and climate change endangered all simulated bird functional types.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Categories</title>
-      <link>http://localhost:1313/categories/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/categories/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Posts</title>
-      <link>http://localhost:1313/posts/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/posts/</guid>
-      <description></description>
     </item>
     
   </channel>

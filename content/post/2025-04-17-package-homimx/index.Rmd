@@ -9,6 +9,9 @@ layout: post
 description: "Esta entrada brinda una explicación breve sobre el funcionamiento de las funciones contenidas en mi package HomiMx."
 tags: ["Homicidios", "Inseguridad", "R", "Package"]
 chunk_output_type: inline
+output:
+  rmarkdown::html_document:
+    toc: false
 
 ---
 

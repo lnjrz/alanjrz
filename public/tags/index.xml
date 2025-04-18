@@ -5,31 +5,49 @@
     <description>Recent content in Tags on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 17 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 17 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Hotspot</title>
-      <link>http://localhost:1313/tags/hotspot/</link>
-      <pubDate>Mon, 17 Mar 2025 00:00:00 +0000</pubDate>
+      <title>Homicidios</title>
+      <link>http://localhost:1313/tags/homicidios/</link>
+      <pubDate>Thu, 17 Apr 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/hotspot/</guid>
+      <guid>http://localhost:1313/tags/homicidios/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Inseguridad</title>
       <link>http://localhost:1313/tags/inseguridad/</link>
-      <pubDate>Mon, 17 Mar 2025 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 17 Apr 2025 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/tags/inseguridad/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>Package</title>
+      <link>http://localhost:1313/tags/package/</link>
+      <pubDate>Thu, 17 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/package/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>R</title>
       <link>http://localhost:1313/tags/r/</link>
-      <pubDate>Mon, 17 Mar 2025 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 17 Apr 2025 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/tags/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hotspot</title>
+      <link>http://localhost:1313/tags/hotspot/</link>
+      <pubDate>Mon, 17 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/hotspot/</guid>
       <description></description>
     </item>
     

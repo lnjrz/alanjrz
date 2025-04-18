@@ -1,25 +1,30 @@
 ---
 title: "Package HomiMx para análisis de homicidios en México"
-subtitle: "V1.1"
 author: "Alan Jrz"
 date: "2025-04-17"
 draft: false
-image: img/banner/blog2.jpg
+image: img/banner/blog1.jpg
 layout: post
-description: "Esta entrada brinda una explicación breve sobre el funcionamiento de las funciones contenidas en mi package HomiMx."
-tags: ["Homicidios", "Inseguridad", "R", "Package"]
+description: "En esta entrada proporciono ejemplos básicos del funcionamiento de mi package HomiMx para analizar los homicidios registrados en México de 1990 a 2023."
+tags: ["Homicidios", "Package", "R"]
 chunk_output_type: inline
 
 ---
-
+  
 ```{r setup, include = FALSE}
-knitr::opts_chunk$set(collapse = TRUE,comment = "#>")
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
 
-library(HomiMx)
+if (requireNamespace("HomiMx", quietly = TRUE)) {
+  library(HomiMx)
+}
+
 
 ```
 
-### Introducción
+## Introducción
 
 Este paquete permite generar tablas de homicidios con diferentes desagregaciones. La información corresponde a las defunciones por homicidio (agresiones) publicadas por el INEGI cada año. El periodo de registro de la información abarca de 1990 hasta 2023.
 
@@ -51,9 +56,9 @@ La función contiene cinco parametros, y solo es obligatorio especificar la base
 
 
 Si el usuario no especifica los parametros opcionales, la función mostrara una tabla por año de ocurrencia sin desagregación geográfica o edad, es decir, el total los homicidios que ocurrieron año con año como se muestra en la siguiente tabla:
-
-
-```{r echo=FALSE}
+  
+  
+```{r tabla_total, echo=FALSE}
 knitr::kable(
   head(tabla_total(homidata),10),
   caption = "Homicidios nacionales por año (año de ocurrencia)"
@@ -61,13 +66,14 @@ knitr::kable(
 ```
 
 Al usar los parametros, es posible obtener una tabla por año de registro, entidad o municipio de ocurrencia y para personas en un rango de edad, en este caso personas entre 12 y 17 años de edad: 
+
 ```{r, eval = FALSE}
 # Estructura completa
 tabla_total(homidata, anio_tipo="registro", desagregacion="entidad", geo_tipo="ocurrencia", edad = 12:17)
 
 ```
 
-```{r echo=FALSE}
+```{r tabla_total_com, echo=FALSE}
 knitr::kable(
   head(tabla_total(homidata, anio_tipo = "registro",desagregacion = "entidad",geo_tipo = "ocurrencia", edad = 12:17),10),
   caption = "Homicidios nacionales por año (año de registro)"
@@ -82,7 +88,7 @@ Al respecto, este package cuenta con catalogos de las entidades federativas __*c
 La principal diferencia de esta función (y del resto de funciones) con la función __tabla_total()__, es que las columnas de la tabla generada corresponden a las categorías de la función y no al sexo. En este caso, muestra las causas de la defunción listadas en CIE-10 y CIE-9, las cuales fueron reclasificadas mediante equivalencias para obtener homicidios cometidos por: _disparo de arma de fuego_, _agresión con objeto cortante o punzante_, _ahorcamiento, extrangulamiento o asfixia_, _otros medio_ y _medios no especificados_.
 
 Por ello, la estructura de la función tiene una pequeña variación, incorporando el paramétro *sexo* el cual puede tomar el valor "hombres" o "mujeres" y por defecto muestra el total. De tal forma, la función completa se construye de la siguiente manera:
-
+  
 ```{r, eval = FALSE}
 # Estructura completa
 tabla_causa(homidata, anio_tipo = "registro", desagregacion = "entidad", geo_tipo = "ocurrencia", sexo="hombres", edad = 18:49)
@@ -90,8 +96,8 @@ tabla_causa(homidata, anio_tipo = "registro", desagregacion = "entidad", geo_tip
 ```
 
 Y genera la siguiente tabla:
-
-```{r echo=FALSE}
+  
+```{r tabla_causa_com, echo=FALSE}
 knitr::kable(
   head(tabla_causa(homidata, anio_tipo = "registro", desagregacion = "entidad", geo_tipo = "ocurrencia", sexo="hombres", edad=18:49),10),
   caption = "Homicidios de hombres entre 18 y 49 años por año de registro y entidad según causa de defunción"
@@ -103,7 +109,7 @@ La estructura del resto de funciones está pensanda de la misma forma.
 ## Cómo acceder a esta viñeta
 
 Puedes acceder a esta viñeta desde R con:
-
+  
 ```r
 browseVignettes("homiMx")
 ```
