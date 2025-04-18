@@ -19,7 +19,7 @@ output:
 
 <div id="introducción" class="section level3">
 <h3>Introducción</h3>
-<pre class="r"><code># Puedes instalar el package desde GitHub con devtools
+<pre class="r"><code># Puedes instalar el package en R desde GitHub con devtools
 # install.packages(&quot;devtools&quot;)
 devtools::install_github(&quot;lnjrz/homiMx&quot;)
 library(HomiMx)</code></pre>
@@ -42,8 +42,8 @@ tabla_hora()
 </div>
 <div id="función-tabla_total" class="section level2">
 <h2>Función <em>tabla_total()</em></h2>
-<p>La función contiene cinco parametros, y solo es obligatorio especificar la base de datos <strong><em>(homidata)</em></strong>. Opcionalmente, el usuario puede especificar <em>anio_tipo</em>, es decir el año de “ocurrencia” o “registro”. También puede selecionar la desagregación por “entidad” o “municipio” mediante el parametro <em>desagregacion</em> y especificar la desagregación geográfica como “registro” u “ocurrencia” con el parametro <em>geo_tipo</em>. Asimismo, si el usuario está interesado en conocer homicidios de edades especificas o rangos de edades, puede usar el parametro <em>edad</em>.</p>
-<p>Si el usuario no especifica los parametros opcionales, la función mostrara una tabla por año de ocurrencia sin desagregación geográfica o edad, es decir, el total los homicidios que ocurrieron año con año como se muestra en la siguiente tabla:</p>
+<p>La función contiene cinco parametros, y solo es obligatorio especificar la base de datos <strong><em>(homidata)</em></strong>. Opcionalmente, el usuario puede especificar <strong><em>anio_tipo</em></strong>, es decir el año de “ocurrencia” o “registro”. También puede selecionar la desagregación por “entidad” o “municipio” mediante el parametro <strong><em>desagregacion</em></strong> y especificar la desagregación geográfica como “registro” u “ocurrencia” con el parametro <strong><em>geo_tipo</em></strong>. Asimismo, si el usuario está interesado en conocer homicidios de edades especificas o rangos de edades, puede usar el parametro <strong><em>edad</em></strong>.</p>
+<p>Si el usuario no especifica los parametros opcionales, la función genera una tabla por año de ocurrencia sin desagregación geográfica o edad, es decir, el total de homicidios que ocurrieron año con año como se muestra en la siguiente tabla:</p>
 <table>
 <caption><span id="tab:unnamed-chunk-3">Table 1: </span>Homicidios nacionales por año (año de ocurrencia)</caption>
 <thead>
@@ -128,7 +128,7 @@ tabla_hora()
 </tr>
 </tbody>
 </table>
-<p>Al usar los parametros, es posible obtener una tabla por año de registro, entidad o municipio de ocurrencia y para personas en un rango de edad, en este caso personas entre 12 y 17 años de edad:</p>
+<p>Al usar los parametros, es posible obtener una tabla por año de registro, entidad o municipio de ocurrencia y para personas en un rango de edad específico, en este caso personas entre 12 y 17 años de edad:</p>
 <pre class="r"><code># Estructura completa
 tabla_total(homidata, anio_tipo=&quot;registro&quot;, desagregacion=&quot;entidad&quot;, geo_tipo=&quot;ocurrencia&quot;, edad = 12:17)
 </code></pre>
@@ -232,8 +232,8 @@ tabla_total(homidata, anio_tipo=&quot;registro&quot;, desagregacion=&quot;entida
 </div>
 <div id="función-tabla_causa" class="section level2">
 <h2>Función <em>tabla_causa()</em></h2>
-<p>La principal diferencia de esta función (y del resto de funciones) con la función <strong>tabla_total()</strong>, es que las columnas de la tabla generada corresponden a las categorías de la función y no al sexo. En este caso, muestra las causas de la defunción listadas en CIE-10 y CIE-9, las cuales fueron reclasificadas mediante equivalencias para obtener homicidios cometidos por: <em>disparo de arma de fuego</em>, <em>agresión con objeto cortante o punzante</em>, <em>ahorcamiento, extrangulamiento o asfixia</em>, <em>otros medio</em> y <em>medios no especificados</em>.</p>
-<p>Por ello, la estructura de la función tiene una pequeña variación, incorporando el paramétro <em>sexo</em> el cual puede tomar el valor “hombres” o “mujeres” y por defecto muestra el total. De tal forma, la función completa se construye de la siguiente manera:</p>
+<p>La principal diferencia de esta función (y del resto de funciones) con la función <strong>tabla_total()</strong>, es que las columnas de la tabla generada corresponden a las categorías de la función y no al sexo. En este caso, muestra las causas de la defunción listadas en CIE-10 y CIE-9, las cuales fueron reclasificadas mediante equivalencias para obtener homicidios cometidos por: <strong><em>disparo de arma de fuego</em></strong>, <strong><em>agresión con objeto cortante o punzante</em></strong>, <strong><em>ahorcamiento, extrangulamiento o asfixia</em></strong>, <strong><em>otros medio</em></strong> y <strong><em>medios no especificados</em></strong>.</p>
+<p>Por ello, la estructura de la función tiene una pequeña variación, incorporando el paramétro <strong><em>sexo</em></strong> el cual puede tomar el valor “hombres” o “mujeres” y por defecto muestra el total. De tal forma, la función completa se construye de la siguiente manera:</p>
 <pre class="r"><code># Estructura completa
 tabla_causa(homidata, anio_tipo = &quot;registro&quot;, desagregacion = &quot;entidad&quot;, geo_tipo = &quot;ocurrencia&quot;, sexo=&quot;hombres&quot;, edad = 18:49)
 </code></pre>

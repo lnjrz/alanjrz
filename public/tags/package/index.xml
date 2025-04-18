@@ -17,8 +17,8 @@
 
 &lt;div id=&#34;introducción&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Introducción&lt;/h3&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Puedes instalar el package desde GitHub con
-install.packages(&amp;quot;devtools&amp;quot;)
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Puedes instalar el package desde GitHub con devtools
+# install.packages(&amp;quot;devtools&amp;quot;)
 devtools::install_github(&amp;quot;lnjrz/homiMx&amp;quot;)
 library(HomiMx)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Este paquete permite generar tablas de homicidios con diferentes desagregaciones. La información corresponde a las defunciones por homicidio (agresiones) publicadas por el INEGI cada año. El periodo de registro de la información abarca de 1990 hasta 2023.&lt;/p&gt;
@@ -40,8 +40,8 @@ tabla_hora()
 &lt;/div&gt;
 &lt;div id=&#34;función-tabla_total&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Función &lt;em&gt;tabla_total()&lt;/em&gt;&lt;/h2&gt;
-&lt;p&gt;La función contiene cinco parametros, y solo es obligatorio especificar la base de datos &lt;strong&gt;&lt;em&gt;(homidata)&lt;/em&gt;&lt;/strong&gt;. Opcionalmente, el usuario puede especificar &lt;em&gt;anio_tipo&lt;/em&gt;, es decir el año de “ocurrencia” o “registro”. También puede selecionar la desagregación por “entidad” o “municipio” mediante el parametro &lt;em&gt;desagregacion&lt;/em&gt; y especificar la desagregación geográfica como “registro” u “ocurrencia” con el parametro &lt;em&gt;geo_tipo&lt;/em&gt;. Asimismo, si el usuario está interesado en conocer homicidios de edades especificas o rangos de edades, puede usar el parametro &lt;em&gt;edad&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;Si el usuario no especifica los parametros opcionales, la función mostrara una tabla por año de ocurrencia sin desagregación geográfica o edad, es decir, el total los homicidios que ocurrieron año con año como se muestra en la siguiente tabla:&lt;/p&gt;
+&lt;p&gt;La función contiene cinco parametros, y solo es obligatorio especificar la base de datos &lt;strong&gt;&lt;em&gt;(homidata)&lt;/em&gt;&lt;/strong&gt;. Opcionalmente, el usuario puede especificar &lt;strong&gt;&lt;em&gt;anio_tipo&lt;/em&gt;&lt;/strong&gt;, es decir el año de “ocurrencia” o “registro”. También puede selecionar la desagregación por “entidad” o “municipio” mediante el parametro &lt;strong&gt;&lt;em&gt;desagregacion&lt;/em&gt;&lt;/strong&gt; y especificar la desagregación geográfica como “registro” u “ocurrencia” con el parametro &lt;strong&gt;&lt;em&gt;geo_tipo&lt;/em&gt;&lt;/strong&gt;. Asimismo, si el usuario está interesado en conocer homicidios de edades especificas o rangos de edades, puede usar el parametro &lt;strong&gt;&lt;em&gt;edad&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Si el usuario no especifica los parametros opcionales, la función genera una tabla por año de ocurrencia sin desagregación geográfica o edad, es decir, el total de homicidios que ocurrieron año con año como se muestra en la siguiente tabla:&lt;/p&gt;
 &lt;table&gt;
 &lt;caption&gt;&lt;span id=&#34;tab:unnamed-chunk-3&#34;&gt;Table 1: &lt;/span&gt;Homicidios nacionales por año (año de ocurrencia)&lt;/caption&gt;
 &lt;thead&gt;
@@ -126,7 +126,7 @@ tabla_hora()
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;Al usar los parametros, es posible obtener una tabla por año de registro, entidad o municipio de ocurrencia y para personas en un rango de edad, en este caso personas entre 12 y 17 años de edad:&lt;/p&gt;
+&lt;p&gt;Al usar los parametros, es posible obtener una tabla por año de registro, entidad o municipio de ocurrencia y para personas en un rango de edad específico, en este caso personas entre 12 y 17 años de edad:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Estructura completa
 tabla_total(homidata, anio_tipo=&amp;quot;registro&amp;quot;, desagregacion=&amp;quot;entidad&amp;quot;, geo_tipo=&amp;quot;ocurrencia&amp;quot;, edad = 12:17)
 &lt;/code&gt;&lt;/pre&gt;
