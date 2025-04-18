@@ -23,7 +23,12 @@ library(HomiMx)
 ```
 
 ### Introducción
-
+```{r, eval = FALSE}
+# Puedes instalar el package desde GitHub con devtools
+# install.packages("devtools")
+devtools::install_github("lnjrz/homiMx")
+library(HomiMx)
+```
 Este paquete permite generar tablas de homicidios con diferentes desagregaciones. La información corresponde a las defunciones por homicidio (agresiones) publicadas por el INEGI cada año. El periodo de registro de la información abarca de 1990 hasta 2023.
 
 Mediante el procesamiento de las 33 bases de datos anuales, fue obtenida una base de datos que integra los homicidios de todo el periodo. Para ello, se utilizaron equivalencias de la CIE-9 y CIE-10. Además de homologación de variables entre los diferentes años, como: causa de la defunción, ocupación, nivel educativo, estado civil, lugar de ocurrencia, mes, día y hora.
