@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=4321&amp;path=livereload" data-no-instant defer></script>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
      <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,7 +8,7 @@
     
     <meta property="og:site_name" content="">
     <meta property="og:type" content="article">
-    <meta property="og:image" content="http://localhost:4321/https://github.com/lnjrz/blanco/blob/main/top2.png?raw=true">
+    <meta property="og:image" content="http://localhost:1313/https://github.com/lnjrz/blanco/blob/main/top2.png?raw=true">
 
     
       <meta name="twitter:card" content="summary_large_image">
@@ -168,7 +168,7 @@
                         
                     </div>
                     <h1>Package HomiMx para análisis de homicidios en México</h1>
-                    <h2 class="subheading">V1.1</h2>
+                    <h2 class="subheading">V1.2</h2>
                     <span class="meta">
 			
 			Thursday • April 17, 2025 
@@ -208,10 +208,10 @@
 # install.packages(&quot;devtools&quot;)
 devtools::install_github(&quot;lnjrz/homiMx&quot;)
 library(HomiMx)</code></pre>
-<p>Este paquete permite generar tablas de homicidios con diferentes desagregaciones. La información corresponde a las defunciones por homicidio (agresiones) publicadas por el INEGI cada año. El periodo de registro de la información abarca de 1990 hasta 2023.</p>
-<p>Mediante el procesamiento de las 33 bases de datos anuales, fue obtenida una base de datos que integra los homicidios de todo el periodo. Para ello, se utilizaron equivalencias de la CIE-9 y CIE-10. Además de homologación de variables entre los diferentes años, como: causa de la defunción, ocupación, nivel educativo, estado civil, lugar de ocurrencia, mes, día y hora.</p>
-<p>A través de funciones como <em>tabla_total()</em> y <em>tabla_causa()</em>, es posible obtener el total de homicidios por año de registro u ocurrencia. Además, hacer desagregaciones por sexo, entidad y municipio.</p>
-<p>Como se mencionó, toda la información es contenida en una base de datos llamada “homidata”. Las funciones para la versión 1.0.0 son las siguientes</p>
+<p>Este paquete permite generar tablas de homicidios con diferentes desagregaciones. La información corresponde a las defunciones por homicidio (agresiones) publicadas por el <em>INEGI</em> cada año. el período de registro de la información abarca de 1990 hasta 2023.</p>
+<p>Mediante el procesamiento de las 33 bases de datos anuales, fue obtenida una base de datos que integra los homicidios de todo el período. Para ello, se utilizaron equivalencias entre la CIE-9 (1990-1997) y la CIE-10 (1998-2023). Además de homologar variables entre los diferentes años, como: causa de la defunción, ocupación, nivel educativo, estado civil, lugar de ocurrencia, mes, día y hora.</p>
+<p>A través de funciones como <strong><em>tabla_total()</em></strong> y <strong><em>tabla_causa()</em></strong>, es posible obtener el total de homicidios por año de registro u ocurrencia. Además, hacer desagregaciones por <strong>edad</strong>, <strong>sexo</strong>, <strong>entidad</strong> y <strong>municipio</strong>.</p>
+<p>Como se mencionó, toda la información es contenida en una base de datos llamada “homidata”. Las funciones para la versión 1.1 son las siguientes</p>
 <pre class="r"><code># Funciones en el package homiMx
 tabla_total()
 tabla_causa()
@@ -223,12 +223,12 @@ tabla_mes()
 tabla_dia()
 tabla_hora()
 </code></pre>
-<p>Por simpleza de esta viñeta, a continuación se explica el funcionamiento de la función <em>tabla_total()</em> y <em>tabla_causa()</em>, ya que el resto de funciones siguen la misma lógica de funcionamiento.</p>
+<p>Para mantener simple esta viñeta, a continuación se explica el funcionamiento de <strong><em>tabla_total()</em></strong> y <strong><em>tabla_causa()</em></strong>, ya que el resto de funciones siguen la misma lógica de funcionamiento.</p>
 </div>
 <div id="función-tabla_total" class="section level2">
 <h2>Función <em>tabla_total()</em></h2>
-<p>La función contiene cinco parametros, y solo es obligatorio especificar la base de datos <strong><em>(homidata)</em></strong>. Opcionalmente, el usuario puede especificar <strong><em>anio_tipo</em></strong>, es decir el año de “ocurrencia” o “registro”. También puede selecionar la desagregación por “entidad” o “municipio” mediante el parametro <strong><em>desagregacion</em></strong> y especificar la desagregación geográfica como “registro” u “ocurrencia” con el parametro <strong><em>geo_tipo</em></strong>. Asimismo, si el usuario está interesado en conocer homicidios de edades especificas o rangos de edades, puede usar el parametro <strong><em>edad</em></strong>.</p>
-<p>Si el usuario no especifica los parametros opcionales, la función genera una tabla por año de ocurrencia sin desagregación geográfica o edad, es decir, el total de homicidios que ocurrieron año con año como se muestra en la siguiente tabla:</p>
+<p>La función contiene cinco parámetros opcionales, el primero <strong><em>anio_tipo</em></strong> sirve para indicar si la desagregación es por año de “ocurrencia” o “registro”; el segundo parámetro, <strong><em>desagregacion</em></strong>, permite especificar el nivel geográfico, es decir, “entidad” o “municipio”; con <strong><em>geo_tipo</em></strong> es posible especificar si la entidad o municipio es donde se registró el homicidio o donde ocurrió (“registro” u “ocurrencia”); con el parámetro <strong><em>edad</em></strong>, podemos indicar un rango de edad de interés, por ejemplo, de 12 a 17 años (12:17) o una edad especifica como 18 años (18). Este parámetro también acepta rangos o edades no consecutivas, por ejemplo, 12 a 17 años y 20 a 29 años (c(12:17,20:29)); por último, el parámetro <strong><em>periodo</em></strong> brinda la opción de seleccionar un año o un rango de años de interés, por ejemplo 2008 a 2023.</p>
+<p>Si el usuario no especifica los parámetros opcionales, la función mostrara una tabla por año de ocurrencia sin desagregación geográfica, edad o año, es decir, el total de los homicidios que ocurrieron año con año como se muestra en la siguiente tabla:</p>
 <table>
 <caption><span id="tab:unnamed-chunk-3">Table 1: </span>Homicidios nacionales por año (año de ocurrencia)</caption>
 <thead>
@@ -313,131 +313,135 @@ tabla_hora()
 </tr>
 </tbody>
 </table>
-<p>Al usar los parametros, es posible obtener una tabla por año de registro, entidad o municipio de ocurrencia y para personas en un rango de edad específico, en este caso personas entre 12 y 17 años de edad:</p>
+<p>Al usar los parámetros, es posible obtener una tabla por año de registro, entidad o municipio de ocurrencia, para personas en un rango de edad entre los 12 y 17 años de edad y que se registraron en 2023:</p>
 <pre class="r"><code># Estructura completa
-tabla_total(homidata, anio_tipo=&quot;registro&quot;, desagregacion=&quot;entidad&quot;, geo_tipo=&quot;ocurrencia&quot;, edad = 12:17)
+tabla_total(anio_tipo=&quot;registro&quot;, desagregacion=&quot;municipio&quot;, geo_tipo=&quot;ocurrencia&quot;, edad = 12:17, periodo = 2023)
 </code></pre>
+<pre><code>#&gt; Las siguientes categorías de sexo no están presentes en los datos filtrados: NE
+#&gt; Las claves geográficas corresponden al Marco Geoestadístico 2024 del INEGI</code></pre>
 <table>
-<caption><span id="tab:unnamed-chunk-5">Table 2: </span>Homicidios nacionales por año (año de registro)</caption>
+<caption><span id="tab:unnamed-chunk-5">Table 2: </span>Homicidios de personas de 12 a 17 años por municipio de ocurrencia (2023 año de registro)</caption>
 <thead>
 <tr class="header">
 <th align="left">ANIO_REGIS</th>
 <th align="left">ENT_OCURR</th>
+<th align="left">NOM_ENT</th>
 <th align="right">Total</th>
 <th align="right">Hombres</th>
 <th align="right">Mujeres</th>
-<th align="right">NE</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">1990</td>
+<td align="left">2023</td>
 <td align="left">01</td>
+<td align="left">Aguascalientes</td>
+<td align="right">4</td>
 <td align="right">3</td>
-<td align="right">2</td>
 <td align="right">1</td>
-<td align="right">0</td>
 </tr>
 <tr class="even">
-<td align="left">1990</td>
+<td align="left">2023</td>
 <td align="left">02</td>
-<td align="right">13</td>
-<td align="right">11</td>
-<td align="right">2</td>
-<td align="right">0</td>
-</tr>
-<tr class="odd">
-<td align="left">1990</td>
-<td align="left">03</td>
-<td align="right">1</td>
-<td align="right">1</td>
-<td align="right">0</td>
-<td align="right">0</td>
-</tr>
-<tr class="even">
-<td align="left">1990</td>
-<td align="left">04</td>
-<td align="right">9</td>
+<td align="left">Baja California</td>
+<td align="right">32</td>
+<td align="right">27</td>
 <td align="right">5</td>
-<td align="right">4</td>
-<td align="right">0</td>
 </tr>
 <tr class="odd">
-<td align="left">1990</td>
+<td align="left">2023</td>
+<td align="left">04</td>
+<td align="left">Campeche</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">2023</td>
 <td align="left">05</td>
-<td align="right">15</td>
-<td align="right">14</td>
-<td align="right">1</td>
-<td align="right">0</td>
-</tr>
-<tr class="even">
-<td align="left">1990</td>
-<td align="left">06</td>
-<td align="right">2</td>
-<td align="right">1</td>
-<td align="right">1</td>
+<td align="left">Coahuila</td>
+<td align="right">3</td>
+<td align="right">3</td>
 <td align="right">0</td>
 </tr>
 <tr class="odd">
-<td align="left">1990</td>
+<td align="left">2023</td>
+<td align="left">06</td>
+<td align="left">Colima</td>
+<td align="right">15</td>
+<td align="right">12</td>
+<td align="right">3</td>
+</tr>
+<tr class="even">
+<td align="left">2023</td>
 <td align="left">07</td>
-<td align="right">17</td>
-<td align="right">13</td>
+<td align="left">Chiapas</td>
+<td align="right">15</td>
+<td align="right">9</td>
+<td align="right">6</td>
+</tr>
+<tr class="odd">
+<td align="left">2023</td>
+<td align="left">08</td>
+<td align="left">Chihuahua</td>
+<td align="right">69</td>
+<td align="right">55</td>
+<td align="right">14</td>
+</tr>
+<tr class="even">
+<td align="left">2023</td>
+<td align="left">09</td>
+<td align="left">Ciudad de México</td>
+<td align="right">20</td>
+<td align="right">16</td>
+<td align="right">4</td>
+</tr>
+<tr class="odd">
+<td align="left">2023</td>
+<td align="left">10</td>
+<td align="left">Durango</td>
+<td align="right">4</td>
 <td align="right">4</td>
 <td align="right">0</td>
 </tr>
 <tr class="even">
-<td align="left">1990</td>
-<td align="left">08</td>
-<td align="right">20</td>
-<td align="right">18</td>
-<td align="right">2</td>
-<td align="right">0</td>
-</tr>
-<tr class="odd">
-<td align="left">1990</td>
-<td align="left">09</td>
-<td align="right">81</td>
-<td align="right">74</td>
-<td align="right">7</td>
-<td align="right">0</td>
-</tr>
-<tr class="even">
-<td align="left">1990</td>
-<td align="left">10</td>
-<td align="right">23</td>
-<td align="right">21</td>
-<td align="right">1</td>
-<td align="right">1</td>
+<td align="left">2023</td>
+<td align="left">11</td>
+<td align="left">Guanajuato</td>
+<td align="right">176</td>
+<td align="right">154</td>
+<td align="right">22</td>
 </tr>
 </tbody>
 </table>
-<p>Como se puede observar, esta función proporciona cinco columnas en su forma predeterminada, una para los años y el resto para la desagregación por sexo. Al usar los parámetros, la función proporciona una columna que contiene la clave oficial de la entidad federativa o del municipio.</p>
+<p>Como se puede observar, esta función proporciona cinco columnas en su forma predeterminada, una para los años y el resto para la desagregación por sexo. Al usar los parámetros, la función proporciona columnas adicionales que contienen la clave oficial de la entidad federativa o del municipio, además del nombre, para ello es utilizado el <em>“Marco Geoestadístico 2024”</em> publicado por el <em>INEGI</em>.</p>
 <p>Al respecto, este package cuenta con catalogos de las entidades federativas <strong><em>cat_entidades</em></strong> y de los municipios <strong><em>cat_municipios</em></strong>, para facilitar la identificación por nombre de los diferentes ámbitos geográficos.</p>
 </div>
 <div id="función-tabla_causa" class="section level2">
 <h2>Función <em>tabla_causa()</em></h2>
-<p>La principal diferencia de esta función (y del resto de funciones) con la función <strong>tabla_total()</strong>, es que las columnas de la tabla generada corresponden a las categorías de la función y no al sexo. En este caso, muestra las causas de la defunción listadas en CIE-10 y CIE-9, las cuales fueron reclasificadas mediante equivalencias para obtener homicidios cometidos por: <strong><em>disparo de arma de fuego</em></strong>, <strong><em>agresión con objeto cortante o punzante</em></strong>, <strong><em>ahorcamiento, extrangulamiento o asfixia</em></strong>, <strong><em>otros medio</em></strong> y <strong><em>medios no especificados</em></strong>.</p>
-<p>Por ello, la estructura de la función tiene una pequeña variación, incorporando el paramétro <strong><em>sexo</em></strong> el cual puede tomar el valor “hombres” o “mujeres” y por defecto muestra el total. De tal forma, la función completa se construye de la siguiente manera:</p>
+<p>La principal diferencia de esta función (y del resto de funciones) con la función <strong><em>tabla_total()</em></strong>, es que las columnas de la tabla generada corresponden a las categorías de la función y no al sexo. En este caso, muestra las causas de la defunción listadas en CIE-10 y CIE-9, las cuales fueron reclasificadas mediante equivalencias para obtener homicidios cometidos por: <strong><em>disparo de arma de fuego</em></strong>, <strong><em>agresión con objeto cortante o punzante</em></strong>, <strong><em>ahorcamiento, estrangulamiento o asfixia</em></strong>, <strong><em>otros medios</em></strong> y <strong><em>medios no especificados</em></strong>.</p>
+<p>Por ello, la estructura de la función tiene una pequeña variación, incorporando el paramétro <em>sexo</em> el cual puede tomar el valor “hombres” o “mujeres” y por defecto muestra el total. De tal forma, la función completa se construye de la siguiente manera:</p>
 <pre class="r"><code># Estructura completa
-tabla_causa(homidata, anio_tipo = &quot;registro&quot;, desagregacion = &quot;entidad&quot;, geo_tipo = &quot;ocurrencia&quot;, sexo=&quot;hombres&quot;, edad = 18:49)
+tabla_causa(anio_tipo = &quot;registro&quot;, desagregacion = &quot;entidad&quot;, geo_tipo = &quot;ocurrencia&quot;, sexo=&quot;hombres&quot;, edad = 18:49, periodo = NULL)
 </code></pre>
 <p>Y genera la siguiente tabla:</p>
-<table>
-<caption><span id="tab:unnamed-chunk-7">Table 3: </span>Homicidios de hombres entre 18 y 49 años por año de registro y entidad según causa de defunción</caption>
+<table style="width:100%;">
+<caption><span id="tab:unnamed-chunk-7">Table 3: </span>Homicidios de hombres entre 18 y 49 años por año de registro y entidad de ocurrencia según causa de defunción</caption>
 <colgroup>
-<col width="14%" />
-<col width="13%" />
-<col width="14%" />
-<col width="18%" />
+<col width="11%" />
 <col width="10%" />
-<col width="7%" />
-<col width="21%" />
+<col width="20%" />
+<col width="11%" />
+<col width="14%" />
+<col width="8%" />
+<col width="6%" />
+<col width="16%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th align="left">ANIO_REGIS</th>
 <th align="left">ENT_OCURR</th>
+<th align="left">NOM_ENT</th>
 <th align="right">arma_fuego</th>
 <th align="right">arma_cortante</th>
 <th align="right">asfixia</th>
@@ -449,6 +453,7 @@ tabla_causa(homidata, anio_tipo = &quot;registro&quot;, desagregacion = &quot;en
 <tr class="odd">
 <td align="left">1990</td>
 <td align="left">01</td>
+<td align="left">Aguascalientes</td>
 <td align="right">13</td>
 <td align="right">5</td>
 <td align="right">1</td>
@@ -458,6 +463,7 @@ tabla_causa(homidata, anio_tipo = &quot;registro&quot;, desagregacion = &quot;en
 <tr class="even">
 <td align="left">1990</td>
 <td align="left">02</td>
+<td align="left">Baja California</td>
 <td align="right">110</td>
 <td align="right">62</td>
 <td align="right">4</td>
@@ -467,6 +473,7 @@ tabla_causa(homidata, anio_tipo = &quot;registro&quot;, desagregacion = &quot;en
 <tr class="odd">
 <td align="left">1990</td>
 <td align="left">03</td>
+<td align="left">Baja California Sur</td>
 <td align="right">2</td>
 <td align="right">6</td>
 <td align="right">1</td>
@@ -476,6 +483,7 @@ tabla_causa(homidata, anio_tipo = &quot;registro&quot;, desagregacion = &quot;en
 <tr class="even">
 <td align="left">1990</td>
 <td align="left">04</td>
+<td align="left">Campeche</td>
 <td align="right">26</td>
 <td align="right">23</td>
 <td align="right">0</td>
@@ -485,6 +493,7 @@ tabla_causa(homidata, anio_tipo = &quot;registro&quot;, desagregacion = &quot;en
 <tr class="odd">
 <td align="left">1990</td>
 <td align="left">05</td>
+<td align="left">Coahuila</td>
 <td align="right">80</td>
 <td align="right">35</td>
 <td align="right">0</td>
@@ -494,6 +503,7 @@ tabla_causa(homidata, anio_tipo = &quot;registro&quot;, desagregacion = &quot;en
 <tr class="even">
 <td align="left">1990</td>
 <td align="left">06</td>
+<td align="left">Colima</td>
 <td align="right">31</td>
 <td align="right">14</td>
 <td align="right">1</td>
@@ -503,6 +513,7 @@ tabla_causa(homidata, anio_tipo = &quot;registro&quot;, desagregacion = &quot;en
 <tr class="odd">
 <td align="left">1990</td>
 <td align="left">07</td>
+<td align="left">Chiapas</td>
 <td align="right">70</td>
 <td align="right">39</td>
 <td align="right">16</td>
@@ -512,6 +523,7 @@ tabla_causa(homidata, anio_tipo = &quot;registro&quot;, desagregacion = &quot;en
 <tr class="even">
 <td align="left">1990</td>
 <td align="left">08</td>
+<td align="left">Chihuahua</td>
 <td align="right">128</td>
 <td align="right">54</td>
 <td align="right">4</td>
@@ -521,6 +533,7 @@ tabla_causa(homidata, anio_tipo = &quot;registro&quot;, desagregacion = &quot;en
 <tr class="odd">
 <td align="left">1990</td>
 <td align="left">09</td>
+<td align="left">Ciudad de México</td>
 <td align="right">443</td>
 <td align="right">126</td>
 <td align="right">36</td>
@@ -530,6 +543,7 @@ tabla_causa(homidata, anio_tipo = &quot;registro&quot;, desagregacion = &quot;en
 <tr class="even">
 <td align="left">1990</td>
 <td align="left">10</td>
+<td align="left">Durango</td>
 <td align="right">174</td>
 <td align="right">15</td>
 <td align="right">0</td>
