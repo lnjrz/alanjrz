@@ -6,7 +6,7 @@ date: "2025-04-17"
 draft: false
 image: img/banner/blog2.jpg
 layout: post
-description: "Esta entrada brinda una explicación breve sobre el funcionamiento de las funciones contenidas en mi package HomiMx."
+description: "Esta entrada brinda una explicación breve sobre la estructura de las funciones contenidas en mi package HomiMx."
 tags: ["Homicidios", "Inseguridad", "R", "Package"]
 chunk_output_type: inline
 output:
@@ -23,10 +23,10 @@ output:
 # install.packages(&quot;devtools&quot;)
 devtools::install_github(&quot;lnjrz/homiMx&quot;)
 library(HomiMx)</code></pre>
-<p>Este paquete permite generar tablas de homicidios con diferentes desagregaciones. La información corresponde a las defunciones por homicidio (agresiones) publicadas por el <em>INEGI</em> cada año. el período de registro de la información abarca de 1990 hasta 2023.</p>
+<p>Este paquete permite generar tablas de homicidios con diferentes desagregaciones. La información corresponde a las defunciones por homicidio (agresiones) publicadas por el <em>INEGI</em> cada año. El período de registro de la información abarca de 1990 hasta 2023.</p>
 <p>Mediante el procesamiento de las 33 bases de datos anuales, fue obtenida una base de datos que integra los homicidios de todo el período. Para ello, se utilizaron equivalencias entre la CIE-9 (1990-1997) y la CIE-10 (1998-2023). Además de homologar variables entre los diferentes años, como: causa de la defunción, ocupación, nivel educativo, estado civil, lugar de ocurrencia, mes, día y hora.</p>
 <p>A través de funciones como <strong><em>tabla_total()</em></strong> y <strong><em>tabla_causa()</em></strong>, es posible obtener el total de homicidios por año de registro u ocurrencia. Además, hacer desagregaciones por <strong>edad</strong>, <strong>sexo</strong>, <strong>entidad</strong> y <strong>municipio</strong>.</p>
-<p>Como se mencionó, toda la información es contenida en una base de datos llamada “homidata”. Las funciones para la versión 1.1 son las siguientes</p>
+<p>Como se mencionó, toda la información es contenida en una base de datos llamada “homidata”. Las funciones para la versión 1.2 son las siguientes</p>
 <pre class="r"><code># Funciones en el package homiMx
 tabla_total()
 tabla_causa()
@@ -38,14 +38,14 @@ tabla_mes()
 tabla_dia()
 tabla_hora()
 </code></pre>
-<p>Para mantener simple esta viñeta, a continuación se explica el funcionamiento de <strong><em>tabla_total()</em></strong> y <strong><em>tabla_causa()</em></strong>, ya que el resto de funciones siguen la misma lógica de funcionamiento.</p>
+<p>Para mantener simple esta viñeta, a continuación solo se explica el funcionamiento de <strong><em>tabla_total()</em></strong> y <strong><em>tabla_causa()</em></strong>, ya que el resto de funciones siguen la misma lógica de funcionamiento.</p>
 </div>
 <div id="función-tabla_total" class="section level2">
 <h2>Función <em>tabla_total()</em></h2>
-<p>La función contiene cinco parámetros opcionales, el primero <strong><em>anio_tipo</em></strong> sirve para indicar si la desagregación es por año de “ocurrencia” o “registro”; el segundo parámetro, <strong><em>desagregacion</em></strong>, permite especificar el nivel geográfico, es decir, “entidad” o “municipio”; con <strong><em>geo_tipo</em></strong> es posible especificar si la entidad o municipio es donde se registró el homicidio o donde ocurrió (“registro” u “ocurrencia”); con el parámetro <strong><em>edad</em></strong>, podemos indicar un rango de edad de interés, por ejemplo, de 12 a 17 años (12:17) o una edad especifica como 18 años (18). Este parámetro también acepta rangos o edades no consecutivas, por ejemplo, 12 a 17 años y 20 a 29 años (c(12:17,20:29)); por último, el parámetro <strong><em>periodo</em></strong> brinda la opción de seleccionar un año o un rango de años de interés, por ejemplo 2008 a 2023.</p>
-<p>Si el usuario no especifica los parámetros opcionales, la función mostrara una tabla por año de ocurrencia sin desagregación geográfica, edad o año, es decir, el total de los homicidios que ocurrieron año con año como se muestra en la siguiente tabla:</p>
+<p>La función contiene cinco parámetros opcionales, el primero <strong><em>anio_tipo</em></strong> sirve para indicar si la desagregación es por año de “ocurrencia” o “registro”; el segundo parámetro, <strong><em>desagregacion</em></strong>, permite especificar el nivel geográfico, es decir, “entidad” o “municipio”; con <strong><em>geo_tipo</em></strong> es posible especificar si la entidad o municipio es donde se registró el homicidio o donde ocurrió (“registro” u “ocurrencia”); con el parámetro <strong><em>edad</em></strong>, podemos indicar un rango de edad de interés, por ejemplo, de 12 a 17 años (12:17) o una edad especifica como 18 años (18). Este parámetro también acepta rangos o edades no consecutivas, por ejemplo, 12 a 17 años y 20 a 29 años (c(12:17,20:29)); por último, el parámetro <strong><em>periodo</em></strong> brinda la opción de seleccionar un año o un rango de años de interés, por ejemplo 2008 a 2023 (2008:2023).</p>
+<p>Si el usuario no especifica los parámetros opcionales, la función mostrará una tabla por año de ocurrencia sin desagregación geográfica o edad, es decir, el total de los homicidios que ocurrieron año con año como se muestra en la siguiente tabla:</p>
 <table>
-<caption><span id="tab:unnamed-chunk-3">Table 1: </span>Homicidios nacionales por año (año de ocurrencia)</caption>
+<caption><span id="tab:unnamed-chunk-3">Table 1: </span>Homicidios nacionales por año de ocurrencia</caption>
 <thead>
 <tr class="header">
 <th align="left">ANIO_OCUR</th>
@@ -128,6 +128,9 @@ tabla_hora()
 </tr>
 </tbody>
 </table>
+<p style="font-size:14px; color:gray;">
+Se muestran los primeros 10 registros
+</p>
 <p>Al usar los parámetros, es posible obtener una tabla por año de registro, entidad o municipio de ocurrencia, para personas en un rango de edad entre los 12 y 17 años de edad y que se registraron en 2023:</p>
 <pre class="r"><code># Estructura completa
 tabla_total(anio_tipo=&quot;registro&quot;, desagregacion=&quot;municipio&quot;, geo_tipo=&quot;ocurrencia&quot;, edad = 12:17, periodo = 2023)
@@ -229,12 +232,15 @@ tabla_total(anio_tipo=&quot;registro&quot;, desagregacion=&quot;municipio&quot;,
 </tr>
 </tbody>
 </table>
+<p style="font-size:14px; color:gray;">
+Se muestran los primeros 10 registros
+</p>
 <p>Como se puede observar, esta función proporciona cinco columnas en su forma predeterminada, una para los años y el resto para la desagregación por sexo. Al usar los parámetros, la función proporciona columnas adicionales que contienen la clave oficial de la entidad federativa o del municipio, además del nombre, para ello es utilizado el <em>“Marco Geoestadístico 2024”</em> publicado por el <em>INEGI</em>.</p>
 <p>Al respecto, este package cuenta con catalogos de las entidades federativas <strong><em>cat_entidades</em></strong> y de los municipios <strong><em>cat_municipios</em></strong>, para facilitar la identificación por nombre de los diferentes ámbitos geográficos.</p>
 </div>
 <div id="función-tabla_causa" class="section level2">
 <h2>Función <em>tabla_causa()</em></h2>
-<p>La principal diferencia de esta función (y del resto de funciones) con la función <strong><em>tabla_total()</em></strong>, es que las columnas de la tabla generada corresponden a las categorías de la función y no al sexo. En este caso, muestra las causas de la defunción listadas en CIE-10 y CIE-9, las cuales fueron reclasificadas mediante equivalencias para obtener homicidios cometidos por: <strong><em>disparo de arma de fuego</em></strong>, <strong><em>agresión con objeto cortante o punzante</em></strong>, <strong><em>ahorcamiento, estrangulamiento o asfixia</em></strong>, <strong><em>otros medios</em></strong> y <strong><em>medios no especificados</em></strong>.</p>
+<p>La principal diferencia de esta función (y del resto de funciones) con la función <strong><em>tabla_total()</em></strong>, es que las columnas de la tabla generada corresponden a las categorías de la función y no al sexo. En este caso, muestra las causas de la defunción listadas en CIE-10 y CIE-9, las cuales fueron reclasificadas mediante equivalencias para obtener homicidios cometidos por: <strong><em>“disparo de arma de fuego”</em></strong>, <strong><em>“agresión con objeto cortante o punzante”</em></strong>, <strong><em>“ahorcamiento, estrangulamiento o asfixia”</em></strong>, <strong><em>“otros medios”</em></strong> y <strong><em>“medios no especificados”</em></strong>.</p>
 <p>Por ello, la estructura de la función tiene una pequeña variación, incorporando el paramétro <em>sexo</em> el cual puede tomar el valor “hombres” o “mujeres” y por defecto muestra el total. De tal forma, la función completa se construye de la siguiente manera:</p>
 <pre class="r"><code># Estructura completa
 tabla_causa(anio_tipo = &quot;registro&quot;, desagregacion = &quot;entidad&quot;, geo_tipo = &quot;ocurrencia&quot;, sexo=&quot;hombres&quot;, edad = 18:49, periodo = NULL)
@@ -367,6 +373,9 @@ tabla_causa(anio_tipo = &quot;registro&quot;, desagregacion = &quot;entidad&quot
 </tr>
 </tbody>
 </table>
+<p style="font-size:14px; color:gray;">
+Se muestran los primeros 10 registros
+</p>
 <p>La estructura del resto de funciones está pensanda de la misma forma.</p>
 </div>
 <div id="cómo-acceder-a-esta-viñeta" class="section level2">
