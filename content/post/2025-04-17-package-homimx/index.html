@@ -137,13 +137,25 @@ tabla_total(anio_tipo=&quot;registro&quot;, desagregacion=&quot;municipio&quot;,
 </code></pre>
 <pre><code>#&gt; Las siguientes categorías de sexo no están presentes en los datos filtrados: NE
 #&gt; Las claves geográficas corresponden al Marco Geoestadístico 2024 del INEGI</code></pre>
-<table>
+<table style="width:100%;">
 <caption><span id="tab:unnamed-chunk-5">Table 2: </span>Homicidios de personas de 12 a 17 años por municipio de ocurrencia (2023 año de registro)</caption>
+<colgroup>
+<col width="13%" />
+<col width="12%" />
+<col width="9%" />
+<col width="19%" />
+<col width="18%" />
+<col width="7%" />
+<col width="9%" />
+<col width="9%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">ANIO_REGIS</th>
-<th align="left">ENT_OCURR</th>
+<th align="left">MUN_OCURR</th>
+<th align="left">CVE_ENT</th>
 <th align="left">NOM_ENT</th>
+<th align="left">NOMGEO</th>
 <th align="right">Total</th>
 <th align="right">Hombres</th>
 <th align="right">Mujeres</th>
@@ -152,83 +164,103 @@ tabla_total(anio_tipo=&quot;registro&quot;, desagregacion=&quot;municipio&quot;,
 <tbody>
 <tr class="odd">
 <td align="left">2023</td>
+<td align="left">01001</td>
 <td align="left">01</td>
 <td align="left">Aguascalientes</td>
-<td align="right">4</td>
+<td align="left">Aguascalientes</td>
 <td align="right">3</td>
+<td align="right">2</td>
 <td align="right">1</td>
 </tr>
 <tr class="even">
 <td align="left">2023</td>
+<td align="left">01010</td>
+<td align="left">01</td>
+<td align="left">Aguascalientes</td>
+<td align="left">El Llano</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">2023</td>
+<td align="left">02001</td>
 <td align="left">02</td>
 <td align="left">Baja California</td>
-<td align="right">32</td>
-<td align="right">27</td>
+<td align="left">Ensenada</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">2023</td>
+<td align="left">02002</td>
+<td align="left">02</td>
+<td align="left">Baja California</td>
+<td align="left">Mexicali</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">2023</td>
+<td align="left">02003</td>
+<td align="left">02</td>
+<td align="left">Baja California</td>
+<td align="left">Tecate</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">2023</td>
+<td align="left">02004</td>
+<td align="left">02</td>
+<td align="left">Baja California</td>
+<td align="left">Tijuana</td>
+<td align="right">25</td>
+<td align="right">20</td>
 <td align="right">5</td>
 </tr>
 <tr class="odd">
 <td align="left">2023</td>
+<td align="left">04003</td>
 <td align="left">04</td>
 <td align="left">Campeche</td>
+<td align="left">Carmen</td>
 <td align="right">2</td>
 <td align="right">2</td>
 <td align="right">0</td>
 </tr>
 <tr class="even">
 <td align="left">2023</td>
+<td align="left">05017</td>
 <td align="left">05</td>
 <td align="left">Coahuila</td>
-<td align="right">3</td>
-<td align="right">3</td>
+<td align="left">Matamoros</td>
+<td align="right">1</td>
+<td align="right">1</td>
 <td align="right">0</td>
 </tr>
 <tr class="odd">
 <td align="left">2023</td>
-<td align="left">06</td>
-<td align="left">Colima</td>
-<td align="right">15</td>
-<td align="right">12</td>
-<td align="right">3</td>
-</tr>
-<tr class="even">
-<td align="left">2023</td>
-<td align="left">07</td>
-<td align="left">Chiapas</td>
-<td align="right">15</td>
-<td align="right">9</td>
-<td align="right">6</td>
-</tr>
-<tr class="odd">
-<td align="left">2023</td>
-<td align="left">08</td>
-<td align="left">Chihuahua</td>
-<td align="right">69</td>
-<td align="right">55</td>
-<td align="right">14</td>
-</tr>
-<tr class="even">
-<td align="left">2023</td>
-<td align="left">09</td>
-<td align="left">Ciudad de México</td>
-<td align="right">20</td>
-<td align="right">16</td>
-<td align="right">4</td>
-</tr>
-<tr class="odd">
-<td align="left">2023</td>
-<td align="left">10</td>
-<td align="left">Durango</td>
-<td align="right">4</td>
-<td align="right">4</td>
+<td align="left">05018</td>
+<td align="left">05</td>
+<td align="left">Coahuila</td>
+<td align="left">Monclova</td>
+<td align="right">1</td>
+<td align="right">1</td>
 <td align="right">0</td>
 </tr>
 <tr class="even">
 <td align="left">2023</td>
-<td align="left">11</td>
-<td align="left">Guanajuato</td>
-<td align="right">176</td>
-<td align="right">154</td>
-<td align="right">22</td>
+<td align="left">05030</td>
+<td align="left">05</td>
+<td align="left">Coahuila</td>
+<td align="left">Saltillo</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">0</td>
 </tr>
 </tbody>
 </table>
